@@ -28,7 +28,7 @@ You can follow the [hosting guide](https://https://github.com/WhosPix3l/Botphyte
 ## Links
 
 *   🧩 [Commands List](https://www.github.com/WhosPix3l/Botphyte/wiki/Commands)
-*   🚀 [Installation Guide](https://www.github.com/WhosPix3l/Botphyte/wiki/Installation)
+*   🚀 [Hosting Guide](https://www.github.com/WhosPix3l/Botphyte/wiki/Hosting)
 *   📌 [F.A.Q](https://www.github.com/WhosPix3l/Botphyte/wiki/FAQ)
 *   🤖 [Neophyte Discord](https://www.discord.com/invite/WeD3ypV)
 
