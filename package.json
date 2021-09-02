@@ -1,0 +1,30 @@
+{
+  "devDependencies": {
+    "eslint": "^7.32.0"
+  },
+  "dependencies": {
+    "@discordjs/builders": "^0.6.0",
+    "@discordjs/rest": "^0.1.0-canary.0",
+    "discord-api-types": "^0.22.0",
+    "discord.js": "^13.1.0",
+    "dotenv": "^10.0.0"
+  },
+  "name": "botphyte",
+  "description": "Official bot for Neophyte's server!",
+  "version": "0.0.1",
+  "main": "botphyte.js",
+  "scripts": {
+    "start": "node botphyte.js",
+    "deploy": "node deploy.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WhosPix3l/Botphyte.git"
+  },
+  "author": "WhosPix3l",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/WhosPix3l/Botphyte/issues"
+  },
+  "homepage": "https://github.com/WhosPix3l/Botphyte#readme"
+}
