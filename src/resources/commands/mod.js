@@ -3,7 +3,6 @@
 // Created with <3 by Pix3l_.
 
 const { SlashCommandBuilder } = require('@discordjs/builders');
-const { has } = require('cheerio/lib/api/traversing');
 const { Permissions } = require('discord.js');
 const config = require('../config.json');
 
