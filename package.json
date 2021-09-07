@@ -5,17 +5,24 @@
   "dependencies": {
     "@discordjs/builders": "^0.6.0",
     "@discordjs/rest": "^0.1.0-canary.0",
+    "axios": "^0.21.4",
+    "cheerio": "^1.0.0-rc.10",
+    "colors": "^1.4.0",
     "discord-api-types": "^0.22.0",
+    "discord-reply": "^0.1.2",
     "discord.js": "^13.1.0",
-    "dotenv": "^10.0.0"
+    "mathjs": "^9.4.4",
+    "moment": "^2.29.1",
+    "node-twitch": "^0.4.5",
+    "pirate-speak": "^1.0.1"
   },
   "name": "botphyte",
   "description": "Official bot for Neophyte's server!",
-  "version": "0.0.1",
-  "main": "botphyte.js",
+  "version": "0.9.3",
+  "main": "src/botphyte.js",
   "scripts": {
-    "start": "node botphyte.js",
-    "deploy": "node deploy.js"
+    "botphyte": "node src/botphyte.js",
+    "deploy": "node src/resources/deploy.js"
   },
   "repository": {
     "type": "git",
