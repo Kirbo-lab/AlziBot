@@ -24,7 +24,7 @@ module.exports = {
                 })
             }
         } else {
-            interaction.reply({ content: `You have insufficient privileges to run this command!`, ephemeral: true })
+            interaction.reply({ content: `You do not have \`ADMINISTRATOR\` privileges to run this command!`, ephemeral: true })
         }
     }
 }
