@@ -42,4 +42,4 @@ For questions, you can simply make a new issue.
 
 ## License
 
-Botphyte is licensed under the MIT license. See the file `LICENSE` for more information. If you plan to use any part of this code in your bot, I would be grateful if you nclude some form of credit.
+Botphyte is licensed under the GLWTPL license. See the file `LICENSE` for more information. If you plan to use any part of this code in your bot, I would be grateful if you nclude some form of credit.
