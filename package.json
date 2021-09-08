@@ -13,6 +13,7 @@
     "discord.js": "^13.1.0",
     "mathjs": "^9.4.4",
     "moment": "^2.29.1",
+    "ms": "^2.1.3",
     "node-twitch": "^0.4.5",
     "pirate-speak": "^1.0.1"
   },
