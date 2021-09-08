@@ -19,7 +19,7 @@ module.exports = {
 
             // Create new role if non existant
             if(!role)
-                interaction.guild.roles.create({name: 'Muted', permissions: [Permissions.FLAGS.READ_MESSAGE_HISTORY, Permissions.FLAGS.CREATE_INSTANT_INVITE], color: '#f44336'})
+                interaction.guild.roles.create({name: 'Muted', permissions: [Permissions.FLAGS.VIEW_CHANNEL, Permissions.FLAGS.READ_MESSAGE_HISTORY, Permissions.FLAGS.CREATE_INSTANT_INVITE], color: '#f44336'})
 
             // Fetch user.
             const user = interaction.options.getMember('user');

@@ -16,8 +16,8 @@ module.exports = {
             // Fetch user.
             const user = interaction.options.getUser('user');
             
-            // Add muted role.
-            guild.members.kick(user);
+            // Kick user.
+            interaction.guild.members.kick(user);
 
             const embed = new MessageEmbed()
                 .setColor(config.embed.colour)
