@@ -24,7 +24,7 @@ module.exports = {
             subcommand.setName('country')
                       .setDescription('Shows the amount of COVID-19 cases in a country.')
                       .addStringOption(option => option.setName('region')
-                                                       .setDescription('Enter a continent to pull information from!')
+                                                       .setDescription('Enter a country to pull information from!')
                                                        .setRequired(true))),
     async execute(interaction) {
         const button = new MessageActionRow()
