@@ -66,16 +66,16 @@ module.exports = {
 					.setDescription(`This took **${ms} ms**.`)
 
 				// If the ping is a higher than certain number, use a different colour.
-				if(ms > 250) {
-					latencyEmbed.setColor('#00FF51');
-				} else if(ms > 500) {
-					latencyEmbed.setColor('#FFFF00');
-				} else if(ms > 750) {
-					latencyEmbed.setColor('#FF7B00');
-				} else if(ms > 1000) {
-					latencyEmbed.setColor('#FF2600');
-				} else {
+				       if(ms < 250) {
 					latencyEmbed.setColor(config.embed.colour);
+				} else if(ms < 500) {
+					latencyEmbed.setColor('#00FF51');
+				} else if(ms < 750) {
+					latencyEmbed.setColor('#FFFF00');
+				} else if(ms < 1000) {
+					latencyEmbed.setColor('#FF7B00');
+				} else {
+					latencyEmbed.setColor('#FF2600');
 				}
 
 				// Reply to interaction.
