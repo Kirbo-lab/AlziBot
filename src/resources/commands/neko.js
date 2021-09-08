@@ -20,6 +20,7 @@ module.exports = {
 		const embed = new MessageEmbed()
 			.setColor(config.embed.colour)
 			.setTitle('Here is your Neko!')
+			.setDescription('Be careful, it\'s **No Simp September**.')
 			.setURL(url)
 			.setImage(url)
 			.setFooter(`Fetched from https://waifu.pics/api/${nsfw}/neko.`);
