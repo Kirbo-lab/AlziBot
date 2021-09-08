@@ -15,7 +15,10 @@ module.exports = {
 					  .setDescription('Displays information about the heart and soul of Botphyte.'))
 		.addSubcommand(subcommand => 
 			subcommand.setName('ping')
-					  .setDescription('Displays latency between Botphyte and the API.')),
+					  .setDescription('Displays latency between Botphyte and the API.'))
+	  .addSubcommand(subcommand => 
+			subcommand.setName('license')
+					  .setDescription('Displays the Botphyte LICENSE.')),
     async execute(interaction) {
 
         if(interaction.options.getSubcommand() === 'about') {
@@ -80,6 +83,30 @@ module.exports = {
 
 				// Reply to interaction.
 				interaction.reply({ embeds: [latencyEmbed] });
-    	}
+    	} else if(interaction.options.getSubcommand() === 'license') {
+			const licenseEmbed = new MessageEmbed()
+				.setColor(config.embed.colour)
+				.setTitle('GLWTS(Good Luck With That Shit) Public License')
+				.setDescription('Copyright © Every-fucking-one, except the Author\n\nEveryone is permitted to copy, distribute, modify, merge, sell, publish, sublicense or whatever the fuck they want with this software but at their OWN RISK.\n\n**Preamble**\nThe author has absolutely no fucking clue what the code in this project does. It might just fucking work or not, there is no third option.\n\n\n**GOOD LUCK WITH THAT SHIT PUBLIC LICENSE**\nTERMS AND CONDITIONS FOR COPYING, DISTRIBUTION, AND MODIFICATION\n\nYou just DO WHATEVER THE FUCK YOU WANT TO as long as you NEVER LEAVE A FUCKING TRACE TO TRACK THE AUTHOR of the original product to blame for or held responsible.\n\nIN NO EVENT SHALL THE AUTHORS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.')
+				.setFooter('Good luck and Godspeed.');
+
+			const licenseButton = new MessageActionRow()
+				.addComponents(
+					new MessageButton()
+						.setStyle('LINK')
+						.setLabel('See the file on GitHub!')
+						.setURL('https://github.com/WhosPix3l/Botphyte/blob/main/LICENSE')
+				)
+				.addComponents(
+					new MessageButton()
+						.setStyle('LINK')
+						.setLabel('See the LICENSE!')
+						.setURL('https://spdx.org/licenses/GLWTPL.html')
+				)
+
+			// Reply to interaction.
+			interaction.reply({ embeds: [licenseEmbed], components: [licenseButton] });
+
+	}
     }
 }
