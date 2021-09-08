@@ -7,18 +7,18 @@ const  config = require('../config.json');
 
 module.exports = {
     data: new SlashCommandBuilder()
-        .setName('reload')
-        .setDescription('Kills the bot process, then fires it back up.'),
+        .setName('die')
+        .setDescription('Kills the bot process.'),
     async execute(interaction) {
         if(interaction.user.id === config.owner.botOwner) {
-            interaction.reply({ content: 'Reloading bot...', ephemeral: true })
+            interaction.reply({ content: 'Killing the bot process.', ephemeral: true })
             function task(i) {
                 setTimeout(function() {
                     process.exit()
                 }, 5000 * i);
               }
         } else {
-            interaction.reply({ content: `You must be \`${config.owner.botOwner}\` to run this command!`, ephemeral: true })
+            interaction.reply({ content: `You must be \`${config.owner.botOwnerTag}\` to run this command!`, ephemeral: true })
         }
     }
 }
