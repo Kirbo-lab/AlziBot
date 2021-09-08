@@ -39,19 +39,19 @@ module.exports = {
 						new MessageButton()
 							.setStyle('LINK')
 							.setLabel('Star me on GitHub!')
-							.setURL(config.links.github.main)
+							.setURL(config.owner.github.main)
 					)
 					.addComponents(
 						new MessageButton()
 							.setStyle('LINK')
 							.setLabel('Support me on Patreon!')
-							.setURL(config.links.donate)
+							.setURL(config.owner.donate)
 					)
 					.addComponents(
 						new MessageButton()
 							.setStyle('LINK')
 							.setLabel('Report bugs on GitHub!')
-							.setURL(config.links.github.issues)
+							.setURL(config.owner.github.issues)
 					);
 			// #endregion Buttons
 
