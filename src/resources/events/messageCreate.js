@@ -69,6 +69,8 @@ module.exports = {
         } else if(message.content === 'oh damn, belle delphine, ok i see') {
             message.reply({ embeds: [belleEmbed] });
             console.log(`┌─ `.white + `[${hour}:${minute}]`.brightGreen.bold + ` ` + `(${__dirname}/botphyte.js)`.brightYellow.bold + ` ` + `(LOG)\n`.bold + `└─`.white + ` Replied to message "${message.content}"\n`);
+        } else if(message.content === 'hi botphyte') {
+            message.reply('Hey there!')
         }
     }
 }
