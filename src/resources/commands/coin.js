@@ -8,7 +8,7 @@ const config = require('../config.json');
 
 module.exports = {
     data: new SlashCommandBuilder()
-        .setName('coinflip')
+        .setName('coin')
         .setDescription('Flips a coin.'),
     async execute(interaction) {
         // Define sides.
