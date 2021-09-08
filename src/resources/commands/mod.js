@@ -11,7 +11,7 @@ module.exports = {
         .setName('mod')
         .setDescription('Grants moderator role to specified user.')
         .addUserOption(option => option.setName('user').setDescription('Enter a user to grant Moderator!').setRequired(true)),
-    async execute(interaction, Botphyte) {
+    async execute(interaction) {
         if (interaction.member.permissions.has(Permissions.FLAGS.ADMINISTRATOR)) {
             const member = interaction.options.getMember('user');
     
