@@ -10,7 +10,7 @@ module.exports = {
     data: new SlashCommandBuilder()
         .setName('mod')
         .setDescription('Grants moderator role to specified user.')
-        .addUserOption(option => option.setName('user').setDescription('Enter a user grant Moderator!').setRequired(true)),
+        .addUserOption(option => option.setName('user').setDescription('Enter a user to grant Moderator!').setRequired(true)),
     async execute(interaction, Botphyte) {
         if (interaction.member.permissions.has(Permissions.FLAGS.ADMINISTRATOR)) {
             const member = interaction.options.getMember('user');
