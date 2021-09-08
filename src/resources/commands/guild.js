@@ -21,12 +21,12 @@ module.exports = {
 			.setURL(config.server.invite)
 			.setThumbnail(interaction.guild.iconURL({ dynamic: true }))
 			.addFields(
-				{ name: ':crown: Owner', value: `<@${interaction.guild.ownerId}>`},
-				{ name: ':calendar_spiral: Creation Date', value: `${interaction.guild.createdAt}`},
-				{ name: ':clipboard: Guild ID', value: `${interaction.guild.id}`},
-				{ name: ':busts_in_silhouette: User Count', value: `${interaction.guild.members.cache.filter(m => !m.user.bot).size} members | ${interaction.guild.members.cache.filter(m => m.user.bot).size} bots`, inline: true},
-				{ name: ':gem: Boosters', value: `${interaction.guild.premiumSubscriptionCount || 0} boosts`, inline: true},
-				{ name: ':speech_left: Channels', value: `${interaction.guild.channels.cache.filter(c => c.type === "GUILD_CATEGORY").size} categories | ${interaction.guild.channels.cache.filter(c => c.type === "GUILD_TEXT").size} text | ${interaction.guild.channels.cache.filter(c => c.type === "GUILD_VOICE").size} voice`, inline: true}
+				{ name: 'Owner', value: `<@${interaction.guild.ownerId}>`},
+				{ name: 'Creation Date', value: `${interaction.guild.createdAt}`},
+				{ name: ':Guild ID', value: `${interaction.guild.id}`},
+				{ name: 'User Count', value: `${interaction.guild.members.cache.filter(m => !m.user.bot).size} members | ${interaction.guild.members.cache.filter(m => m.user.bot).size} bots`, inline: true},
+				{ name: 'Boosters', value: `${interaction.guild.premiumSubscriptionCount || 0} boosts`, inline: true},
+				{ name: 'Channels', value: `${interaction.guild.channels.cache.filter(c => c.type === "GUILD_CATEGORY").size} categories | ${interaction.guild.channels.cache.filter(c => c.type === "GUILD_TEXT").size} text | ${interaction.guild.channels.cache.filter(c => c.type === "GUILD_VOICE").size} voice`, inline: true}
 			)
 		// #endregion Embeds
 
