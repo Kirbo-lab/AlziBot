@@ -18,9 +18,8 @@ module.exports = {
 			.setDescription(config.socials.bio)
 			.setThumbnail(config.socials.picture)
 			.addFields(
-				{ name: ':e_mail: Email', value: config.socials.links.email},
 				{ name: ':clapper: YouTube', value: `https://${config.socials.links.youtube}`},
-				{ name: ':purple_heart: Twitch', value: `https://${config.socials.links.twitch}`},
+				{ name: ':purple_heart: Twitch', value: `https://twitch.tv/${config.socials.links.twitch}`},
 				{ name: ':camera: Instagram', value: `https://${config.socials.links.instagram}`},
 				{ name: ':video_camera: Clips Instagram', value: `https://${config.socials.links.instagram2}`},
 			)

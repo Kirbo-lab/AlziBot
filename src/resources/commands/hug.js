@@ -7,10 +7,11 @@ const { MessageEmbed } = require('discord.js');
 const fetch = require('node-fetch')
 const config = require('../config.json');
 
+
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('hug')
-        .setDescription('Hugs someone. ^-^')
+        .setDescription('Hugs someone.')
         .addUserOption(option => option.setName('target').setDescription('Enter a user to hug!').setRequired(true)),
     async execute(interaction) {
         // Define APIs.
@@ -23,15 +24,27 @@ module.exports = {
         // Fetch from API.
         const { url } = await fetch(API).then(res => res.json());
 
-        // #region Embeds
-        const embed = new MessageEmbed()
-            .setColor(config.embed.colour)
-            .setAuthor(`${interaction.user.username} ${otherstuff[Math.floor(Math.random() * otherstuff.length)]} ${interaction.options.getUser('target')?.username}!~ ${suffixes[Math.floor(Math.random() * suffixes.length)]}`, `${interaction.user.avatarURL()}`)
-            .setImage(url)
-            .setFooter(`Fetched from ${API}.`)
-        // #endregion Embeds
+        if(interaction.options.getUser('target') === interaction.user) {
+            const embed = new MessageEmbed()
+                .setColor(config.embed.colour)
+                .setAuthor(`Botphyte ${otherstuff[Math.floor(Math.random() * otherstuff.length)]} ${interaction.user.username}!~ ${suffixes[Math.floor(Math.random() * suffixes.length)]}`, `${interaction.user.avatarURL()}`)
+                .setImage(url)
+                .setFooter(`Fetched from ${API}.`)
+            // #endregion Embeds
 
-        // Reply to interaction.
-        await interaction.reply({ embeds: [embed] })
+            // Reply to interaction.
+            await interaction.reply({ embeds: [embed] })
+        } else {
+            // #region Embeds
+            const embed = new MessageEmbed()
+                .setColor(config.embed.colour)
+                .setAuthor(`${interaction.user.username} ${otherstuff[Math.floor(Math.random() * otherstuff.length)]} ${interaction.options.getUser('target')?.username}!~ ${suffixes[Math.floor(Math.random() * suffixes.length)]}`, `${interaction.user.avatarURL()}`)
+                .setImage(url)
+                .setFooter(`Fetched from ${API}.`)
+            // #endregion Embeds
+
+            // Reply to interaction.
+            await interaction.reply({ embeds: [embed] })
+        } 
     }
 }

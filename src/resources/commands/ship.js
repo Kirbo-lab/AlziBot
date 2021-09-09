@@ -17,6 +17,14 @@ module.exports = {
                                        .setDescription('Select another user to ship with!')
                                        .setRequired(true)),
     async execute(interaction) {
+        var botCheck1 = interaction.options.getUser('user1')?.bot
+        var botCheck2 = interaction.options.getUser('user2')?.bot
+
+        if(botCheck1 === true || botCheck2 === true) {
+            interaction.reply({ content: 'Sorry, but bots aren\'t invited to the cool /ship party.', ephemeral: true })
+            return
+        } 
+
         var user1 = interaction.options.getUser('user1')?.username
         var user2 = interaction.options.getUser('user2')?.username
 
@@ -35,31 +43,31 @@ module.exports = {
             .setTitle(`${user1} + ${user2} = ${user1slice + user2slice}`)
             .setColor('#FF2600')
             .setThumbnail('https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/twitter/282/broken-heart_1f494.png')
-            .setDescription(`This isn't going to work out... **${lovePercent}%**. 😬`)
+            .setDescription(`**${lovePercent}%** - This isn't going to work out... 😬`)
 
         const thirtyEmbed = new MessageEmbed()
             .setTitle(`${user1} + ${user2} = ${user1slice + user2slice}`)
             .setColor('#FF7B00')
             .setThumbnail('https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/twitter/282/heart-suit_2665-fe0f.png')
-            .setDescription(`Cute couple. **${lovePercent}%**. 😅`)
+            .setDescription(`**${lovePercent}%** - Cute couple. 😅`)
 
         const fiftyEmbed = new MessageEmbed()
             .setTitle(`${user1} + ${user2} = ${user1slice + user2slice}`)
             .setColor('#FFFF00')
             .setThumbnail('https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/twitter/31/two-hearts_1f495.png')
-            .setDescription(`Ahh cute!! **${lovePercent}%** ☺️`)
+            .setDescription(`**${lovePercent}%** - Adorable couple!! 😊`)
 
         const eightyEmbed = new MessageEmbed()
             .setTitle(`${user1} + ${user2} = ${user1slice + user2slice}`)
             .setColor(config.embed.colour)
             .setThumbnail('https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/twitter/31/sparkling-heart_1f496.png')
-            .setDescription(`Adorable couple!!~ **${lovePercent}%** 😊`)
+            .setDescription(`**${lovePercent}%** - AHH CUTE!!~ 😍`)
 
         const topEmbed = new MessageEmbed()
             .setTitle(`${user1} + ${user2} = ${user1slice + user2slice}`)
             .setColor('#ec407a')
             .setThumbnail('https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/twitter/31/heart-with-ribbon_1f49d.png')
-            .setDescription(`damn we all jealous now. **${lovePercent}%** 😔`)
+            .setDescription(`**${lovePercent}%** - damn we all jealous now. 😔`)
 
 
                if(lovePercent < 30) {
@@ -70,7 +78,7 @@ module.exports = {
             interaction.reply({ embeds: [fiftyEmbed] })
         } else if(lovePercent < 95) {
             interaction.reply({ embeds: [eightyEmbed] })
-        } else if(lovePercent > 95) {
+        } else if(lovePercent > 98) {
             interaction.reply({ embeds: [topEmbed] })
         } else {
             interaction.reply({ embeds: [fiftyEmbed] })

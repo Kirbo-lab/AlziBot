@@ -38,13 +38,13 @@ module.exports = {
 			.addFields(
 				{ name: '🇺🇸 U.S.A. Suicide Hotline:', value: '+1-800-273-8255', inline: true },
 				{ name: '🇬🇧 U.K. Suicide Hotline:', value: '116-123', inline: true },
-				{ name: '🏳️‍⚧️ Transgender Lifeline:', value: '(877) 565-8860', inline: true },
+				{ name: '🇦🇺 Australian Suicide Lifeline:', value: '13 11 14', inline: true },
 				{ name: '☎️ Other Hotlines:', value: `[International Suicide Hotlines](https://www.opencounseling.com/suicide-hotlines)\nThese hotlines are made available to those that do not reside in the US or UK. Look up the number on the list that belongs to your country and call it. It will connect you to your country\'s suicide hotline.`, inline: false },
 			)
         // #endregion Embeds
 
         // Reply to interaction.
-        if(interaction.options.getUser('victim')?.id === interaction.user.id) {
+        if(interaction.options.getUser('victim') === interaction.user) {
             await interaction.reply({ embeds: [suicide], ephemeral: true })
         } else {
             await interaction.reply({ embeds: [embed] })

@@ -21,7 +21,7 @@ module.exports = {
 				.setName('info')
 				.setDescription('Displays information about YouTube together.')),
 	async execute(interaction) {
-		if(interaction.options.getSubcommand() === 'user') {		
+		if(interaction.options.getSubcommand() === 'create') {		
 			let vc = interaction.member.voice.channel
 			if(!vc) return interaction.reply({ content: 'You must be in a voice channel to use this command!', ephemeral: true })
 

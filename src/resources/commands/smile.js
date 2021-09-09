@@ -24,7 +24,7 @@ module.exports = {
         // #region Embeds
         const embed = new MessageEmbed()
             .setColor(config.embed.colour)
-            .setAuthor(`${interaction.user.username} ${otherstuff[Math.floor(Math.random() * otherstuff.length)]} ${interaction.options.getUser('victim')?.username}~`, `${interaction.user.avatarURL()}`)
+            .setAuthor(`${interaction.user.username} ${otherstuff[Math.floor(Math.random() * otherstuff.length)]}~`, `${interaction.user.avatarURL()}`)
             .setImage(url)
             .setFooter(`Fetched from ${API}.`)
         // #endregion Embeds

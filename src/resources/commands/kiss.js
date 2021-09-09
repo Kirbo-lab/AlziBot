@@ -23,15 +23,22 @@ module.exports = {
         // Fetch from API.
         const { url } = await fetch(API).then(res => res.json());
 
-        // #region Embeds
-        const embed = new MessageEmbed()
-            .setColor(config.embed.colour)
-            .setAuthor(`${interaction.user.username} ${otherstuff[Math.floor(Math.random() * otherstuff.length)]} ${interaction.options.getUser('target')?.username}~ ${suffixes[Math.floor(Math.random() * suffixes.length)]}`, `${interaction.user.avatarURL()}`)
-            .setImage(url)
-            .setFooter(`Fetched from ${API}.`)
-        // #endregion Embeds
+        if(interaction.options.getUser('target') === interaction.user) {
+            // Reply to interaction.
+            await interaction.reply({ content: 'You can\'t kiss yourself, silly!' })
+        } else if(interaction.options.getUser('target')?.id === config.bot.clientID) {
+            interaction.reply({ content: `<@${interaction.user.id}>, I am underaged!`, ephemeral: true })
+        } else {
+            // #region Embeds
+            const embed = new MessageEmbed()
+                .setColor(config.embed.colour)
+                .setAuthor(`${interaction.user.username} ${otherstuff[Math.floor(Math.random() * otherstuff.length)]} ${interaction.options.getUser('target')?.username}!~ ${suffixes[Math.floor(Math.random() * suffixes.length)]}`, `${interaction.user.avatarURL()}`)
+                .setImage(url)
+                .setFooter(`Fetched from ${API}.`)
+            // #endregion Embeds
 
-        // Reply to interaction.
-        await interaction.reply({ embeds: [embed] })
+            // Reply to interaction.
+            await interaction.reply({ embeds: [embed] })
+        }
     }
 }

@@ -5,6 +5,7 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const fetch = require('node-fetch');
 
+
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('owo')
@@ -72,9 +73,22 @@ module.exports = {
 
 		// #region Webhook processing.
 		// Create a new webhook.
-	    await interaction.channel.createWebhook(`${interaction.user.username}`, { avatar: `${interaction.user.avatarURL()}` }).then(webhook => webhook.send(prefixes[Math.floor(Math.random() * prefixes.length)] + ' ' + owoIfy(interaction.options.getString('message')) + ' ' + suffixes[Math.floor(Math.random() * suffixes.length)]).then(interaction => webhook).then(webhook => webhook.delete()).catch(console.error));
+		const webhook = await interaction.channel.createWebhook(`${interaction.user.username}`, { avatar: `${interaction.user.avatarURL()}` })
+
+		const webhookURL = webhook.url;
+		
+		// Send a webhook message.
+		await fetch(webhookURL, {
+			headers: { 'Content-Type': 'application/json' },
+			method: 'POST',
+			body: JSON.stringify({ content: prefixes[Math.floor(Math.random() * prefixes.length)] + ' ' + owoIfy(interaction.options.getString('message')) + ' ' + suffixes[Math.floor(Math.random() * suffixes.length)] })
+		});
+
+		// Delete the webhook.
+		await webhook.delete()
+		// #endregion Webhook processing.
 
 		// Reply to interaction.
-		await interaction.reply({ content: 'Webhook sent!', ephemeral: true });
+		await interaction.reply({ content: 'Webhook sent!', ephemeral: true })
 	},
 };

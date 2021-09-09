@@ -29,18 +29,16 @@ module.exports = {
 		const embed = new MessageEmbed()
 			.setColor(config.embed.colour)
 			.setTitle(`Calculator`)
-			.addField('🧮 Equation', `${eq}`)
+			.addField('Equation', `${eq}`)
 		// #endregion Embeds
 
 		// If the answer is a certain number, use a different emoji.
 		if(ans === 69) {
-			embed.addField('😏 Answer', `${ans}`)
+			embed.addField('Answer', `${ans} 😏`)
 		} else if(ans === 420) {
-			embed.addField('😎 Answer', `${ans}`)
-		} else if(ans === 80085) {
-			embed.addField('🍒 Answer', `${ans}`)
+			embed.addField('Answer', `${ans} 😎`)
 		} else {
-			embed.addField('🔢 Answer', `${ans}`)
+			embed.addField('Answer', `${ans}`)
 		}
 
 		// Reply to interaction.
