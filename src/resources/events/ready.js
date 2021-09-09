@@ -13,15 +13,15 @@ module.exports = {
 	name: 'ready',
 	once: true,
 	execute(Botphyte) {
+		Botphyte.user.setPresence({ activities: [{ name: 'over Neophyte\'s server | /botphyte', type: 'WATCHING' }], status: 'online' });
+		console.log('┌─ '.white + `[${hour}:${minute}]`.brightGreen.bold + ' ' + `(${__dirname}/botphyte.js)`.brightYellow.bold + ' ' + '(LOG)\n'.bold + '└─'.white + ' Changed status.\n');
 		// #region Set status
 		const statuses = [
-			{ activities: [{ name: `ttv_neophyte | /botphyte`, type: 'WATCHING' }], status: 'online' },
-			{ activities: [{ name: `Belle Delphine | /botphyte`, type: 'WATCHING' }], status: 'online' },
-			{ activities: [{ name: `Minecraft | /botphyte`, type: 'PLAYING' }], status: 'online' },
-			{ activities: [{ name: `Neophyte | /botphyte`, type: 'WATCHING' }], status: 'online' },
-			// eslint-disable-next-line no-useless-escape
-			{ activities: [{ name: `over Neophyte\'s server | /botphyte`, type: 'WATCHING' }], status: 'online' },
-			{ activities: [{ name: `with you | /botphyte`, type: 'PLAYING' }], status: 'online' },
+			{ activities: [{ name: 'ttv_neophyte | /botphyte', type: 'WATCHING' }], status: 'online' },
+			{ activities: [{ name: 'Belle Delphine | /botphyte', type: 'WATCHING' }], status: 'online' },
+			{ activities: [{ name: 'Minecraft | /botphyte', type: 'PLAYING' }], status: 'online' },
+			{ activities: [{ name: 'Neophyte | /botphyte', type: 'WATCHING' }], status: 'online' },
+			{ activities: [{ name: 'over Neophyte\'s server | /botphyte', type: 'WATCHING' }], status: 'online' },
 		];
 		let i = 0;
 		setInterval(() => {
@@ -33,7 +33,7 @@ module.exports = {
 			Botphyte.user.setPresence(status);
 			console.log('┌─ '.white + `[${hour}:${minute}]`.brightGreen.bold + ' ' + `(${__dirname}/botphyte.js)`.brightYellow.bold + ' ' + '(LOG)\n'.bold + '└─'.white + ' Changed status.\n');
 			i++;
-		}, 20000);
+		}, 43200000);
 		// #endregion Set status
 
 		console.log('┌─ '.white + `[${hour}:${minute}]`.brightGreen.bold + ' ' + `(${__dirname}/botphyte.js)`.brightYellow.bold + ' ' + '(LOG)\n'.bold + '└─'.white + ` Logged in as ${Botphyte.user.tag}.\n`);
