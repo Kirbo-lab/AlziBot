@@ -3,7 +3,7 @@
 // Created with <3 by Pix3l_.
 
 // #region Import and declare
-const { MessageEmbed, MessageButton, MessageActionRow } = require('discord.js')
+const { MessageEmbed, MessageButton, MessageActionRow, MessageAttachment } = require('discord.js')
 const colors = require('colors');
 const config = require('../config.json')
 var date_time = new Date();
@@ -71,6 +71,10 @@ module.exports = {
             console.log(`┌─ `.white + `[${hour}:${minute}]`.brightGreen.bold + ` ` + `(${__dirname}/botphyte.js)`.brightYellow.bold + ` ` + `(LOG)\n`.bold + `└─`.white + ` Replied to message "${message.content}"\n`);
         } else if(message.content === 'hi botphyte') {
             message.reply('Hey there!')
+            console.log(`┌─ `.white + `[${hour}:${minute}]`.brightGreen.bold + ` ` + `(${__dirname}/botphyte.js)`.brightYellow.bold + ` ` + `(LOG)\n`.bold + `└─`.white + ` Replied to message "${message.content}"\n`);
+        } else if(message.content === 'OwO') {
+            message.reply('What\'s this?')
+            console.log(`┌─ `.white + `[${hour}:${minute}]`.brightGreen.bold + ` ` + `(${__dirname}/botphyte.js)`.brightYellow.bold + ` ` + `(LOG)\n`.bold + `└─`.white + ` Replied to message "${message.content}"\n`);
         }
     }
 }
