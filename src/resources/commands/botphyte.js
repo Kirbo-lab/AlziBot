@@ -29,7 +29,7 @@ module.exports = {
 				.setDescription('My name is **Botphyte**, a bot for <@257732224709820426>\'s server, and I\'m a multi-purpose bot, which aims to supercharge your Discord server.')
 				.setThumbnail('https://cdn.discordapp.com/attachments/877589565186113548/882586661454749696/Untitled-1.png')
 				.addFields(
-					{ name: ':smile: Maintainers', value: 'I\'m built and maintained by <@783272839435255818>, with a little bit of help from the Discord.js server. Special thanks to <@540898474288480256>, <@455422126149599265>, <@371291057348018177>, and <@366252037694029834> for helping me test Botphyte extensively.'},
+					{ name: ':smile: Maintainers', value: 'I\'m built and maintained by <@783272839435255818>, with a little bit of help from the Discord.js server. A big thank you to <@540898474288480256> and <@455422126149599265> for extensively testing the bot.'},
 					{ name: ':bug: Reporting bugs and inquiries', value: 'If you are encountering issues or having trouble with this bot, feel free to let me know by filing a bug report over the GitHub. Before making a new bug report however, please search for existing bug reports.'},
 					{ name: ':blossom: Contributing to Botphyte', value: 'If you know how to write code in JavaScript with Discord.js 13, you can contribute to Botphyte by improving the code, simply create a pull request and propose your changes!'},
 				)
@@ -60,6 +60,8 @@ module.exports = {
 
 			// Reply to interaction.
             await interaction.reply({ embeds: [botphyteEmbed], components: [botphyteButton] });
+			const message = await interaction.fetchReply();
+			message.react('🖤')
 		} else if(interaction.options.getSubcommand() === 'ping') {
 				// Fetch bot latency.
 				const ms = Date.now() - interaction.createdTimestamp
