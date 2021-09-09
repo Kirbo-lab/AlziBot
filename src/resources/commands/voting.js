@@ -19,11 +19,12 @@ module.exports = {
 										 .setDescription('Enter a hex code or a colour, such as \'RED\' or \'RANDOM\'.')
 										 .setRequired(true)),
 	async execute(interaction) {
+		const colour = interaction.options.getString('colour')
 		// #region Embeds
 		const embed = new MessageEmbed()
 			.setAuthor(`${interaction.user.tag}`, `${interaction.user.avatarURL()}`)
 			.setThumbnail(interaction.user.avatarURL())
-			.setColor(interaction.options.getString('colour'))
+			.setColor(`${colour.toUpperCase()}`)
 			.setTitle(interaction.options.getString('title'))
 			.setDescription(interaction.options.getString('topic'));
 		// #endregion Embeds
