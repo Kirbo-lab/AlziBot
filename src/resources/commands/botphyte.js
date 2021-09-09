@@ -41,6 +41,18 @@ module.exports = {
 					.addComponents(
 						new MessageButton()
 							.setStyle('LINK')
+							.setLabel('Join the support Discord server!')
+							.setURL(config.owner.support)
+					)
+					.addComponents(
+						new MessageButton()
+							.setStyle('LINK')
+							.setLabel('See the documentation!')
+							.setURL(config.owner.github.wiki)
+					)
+					.addComponents(
+						new MessageButton()
+							.setStyle('LINK')
 							.setLabel('Star me on GitHub!')
 							.setURL(config.owner.github.main)
 					)
