@@ -7,7 +7,7 @@ const  config = require('../config.json');
 
 module.exports = {
     data: new SlashCommandBuilder()
-        .setName('die')
+        .setName('stop')
         .setDescription('Kills the bot process.'),
     async execute(interaction) {
         if(interaction.user.id === config.owner.botOwner) {
