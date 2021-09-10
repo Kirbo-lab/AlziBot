@@ -42,26 +42,8 @@ module.exports = {
 		// Reply to interaction.
 		await interaction.reply({ embeds: [embed], components: [button] });
 		} else {
-		// #region Embeds
-		const notNSFWEmbed = new MessageEmbed()
-			.setColor(config.embed.colour)
-			.setTitle('You must be in a NSFW channel to run this command, silly!')
-			.setURL(`https://media.discordapp.net/attachments/783500514868199454/884994133788332042/Unknown-36.jpeg`)
-			.setImage(`https://media.discordapp.net/attachments/783500514868199454/884994133788332042/Unknown-36.jpeg`)
-			.setFooter(`Fetched from media.discordapp.net.`);
-		// #endregion Embeds
-		// #region Buttons
-		const notNSFWButton = new MessageActionRow()
-			.addComponents(
-			new MessageButton()
-				.setStyle('LINK')
-				.setLabel('Visit source here')
-				.setURL(`https://media.discordapp.net/attachments/783500514868199454/884994133788332042/Unknown-36.jpeg`)
-		);
-	// #endregion Buttons
-
 	// Reply to interaction.
-	await interaction.reply({ embeds: [notNSFWEmbed], components: [notNSFWButton] });
+	await interaction.reply({ content: 'You must be in a NSFW channel to run this command, silly!', ephemeral: true });
 		}
 	},
 };
