@@ -13,17 +13,17 @@ Feel free to add a star to the repo if you like the project!
 
 ## Features
 
-wip
+* Botphyte features a lot of commands, mainly fun commands, but also includes a lot of general commands, such as moderation!
 
-[See the full commands list](https://https://github.com/WhosPix3l/Botphyte/wiki/Commands)
+* Botphyte also adds **a new mention**, `@random`, which pings a random member of the server!
 
-Botphyte also adds **a new mention**, `@random`, which pings a random member of the server!
+[See the full commands list](https://github.com/WhosPix3l/Botphyte/wiki/Commands)
 
 ## Hosting
 
 This bot has channel IDs/user IDs hard-coded in, so you must host and customize the bot yourself.
 
-You can follow the [hosting guide](https://https://github.com/WhosPix3l/Botphyte/wiki/Hosting) to properly install it! Don't worry, it's fast and simple if you follow the guide!
+You can follow the [hosting guide](https://https://github.com/WhosPix3l/Botphyte/wiki/Hosting) to properly install it! Don't worry, it's fast and easy if you follow the guide!
 
 ## Links
 
