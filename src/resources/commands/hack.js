@@ -4,7 +4,6 @@
 
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { MessageAttachment } = require('discord.js');
-const time = Math.floor(Date.now() / 1000);
 const wait = require('util').promisify(setTimeout);
 
 module.exports = {
@@ -79,22 +78,22 @@ module.exports = {
             // #endregion More Variables
             await wait(Math.floor(Math.random() * 1500))
 
-            await sentMessage.edit(`┌─[${user[platform]}@${machine[platform]}]─[<t:${time}>]─(${dir[platform]}${file[filepick]}) (LOG)\n└─$ ${action[randomVR]} \`${attack[Math.floor(Math.random() * attack.length)]}:macOS_X/${name[randomName]}.${variant[Math.floor(Math.random() * variant.length)]}${suffix[Math.floor(Math.random() * suffix.length)]}\`... This might take a while.`)
+            await sentMessage.edit(`┌─[${user[platform]}@${machine[platform]}]─[<t:${Math.floor(Date.now() / 1000)}>]─(${dir[platform]}${file[filepick]}) (LOG)\n└─$ ${action[randomVR]} \`${attack[Math.floor(Math.random() * attack.length)]}:macOS_X/${name[randomName]}.${variant[Math.floor(Math.random() * variant.length)]}${suffix[Math.floor(Math.random() * suffix.length)]}\`... This might take a while.`)
             await wait(Math.floor(Math.random() * 30000))
 
-            await sentMessage.edit(`┌─[${user[platform]}@${machine[platform]}]─[<t:${time}>]─(${dir[platform]}${file[filepick]}) (LOG)\n└─$ Failed at ${action[randomVR].toLowerCase()} \`${name[randomName]}.app\`.`);
+            await sentMessage.edit(`┌─[${user[platform]}@${machine[platform]}]─[<t:${Math.floor(Date.now() / 1000)}>]─(${dir[platform]}${file[filepick]}) (LOG)\n└─$ Failed at ${action[randomVR].toLowerCase()} \`${name[randomName]}.app\`.`);
             await wait(5000);
 
-            await sentMessage.edit(`┌─[${user[platform]}@${machine[platform]}]─[<t:${time}>]─(${dir[platform]}${file[filepick]}) (LOG)\n└─$ Finding IP address...`)
+            await sentMessage.edit(`┌─[${user[platform]}@${machine[platform]}]─[<t:${Math.floor(Date.now() / 1000)}>]─(${dir[platform]}${file[filepick]}) (LOG)\n└─$ Finding IP address...`)
             await wait(Math.floor(Math.random() * 1000))
 
-            await sentMessage.edit(`┌─[${user[platform]}@${machine[platform]}]─[<t:${time}>]─(${dir[platform]}${file[filepick]}) (LOG)\n└─$ The IP address is \`${ip[randomIP]}\`, located at \`${geo[randomIP]}\`.`)
+            await sentMessage.edit(`┌─[${user[platform]}@${machine[platform]}]─[<t:${Math.floor(Date.now() / 1000)}>]─(${dir[platform]}${file[filepick]}) (LOG)\n└─$ The IP address is \`${ip[randomIP]}\`, located at \`${geo[randomIP]}\`.`)
             await wait(5000)
         
-            await sentMessage.edit(`┌─[${user[platform]}@${machine[platform]}]─[<t:${time}>]─(${dir[platform]}${file[filepick]}) (LOG)\n└─$ Brute-forcing Discord login... This might take a while.`)
+            await sentMessage.edit(`┌─[${user[platform]}@${machine[platform]}]─[<t:${Math.floor(Date.now() / 1000)}>]─(${dir[platform]}${file[filepick]}) (LOG)\n└─$ Brute-forcing Discord login... This might take a while.`)
             await wait(Math.floor(Math.random() * 30000))
         
-            await sentMessage.edit(`┌─[${user[platform]}@${machine[platform]}]─[<t:${time}>]─(${dir[platform]}${file[filepick]}) (LOG)\n└─$ Login guessed.\n\nEmail: \`${addresses[Math.floor(Math.random() * addresses.length)]}@${domain[Math.floor(Math.random() * domain.length)]}.${ending[Math.floor(Math.random() * ending.length)]}\`\nPassword: \`${pass[Math.floor(Math.random() * pass.length)]}\``)
+            await sentMessage.edit(`┌─[${user[platform]}@${machine[platform]}]─[<t:${Math.floor(Date.now() / 1000)}>]─(${dir[platform]}${file[filepick]}) (LOG)\n└─$ Login guessed.\n\nEmail: \`${addresses[Math.floor(Math.random() * addresses.length)]}@${domain[Math.floor(Math.random() * domain.length)]}.${ending[Math.floor(Math.random() * ending.length)]}\`\nPassword: \`${pass[Math.floor(Math.random() * pass.length)]}\``)
             await wait(5000)
             })
         } else if (interaction.options.getUser('victim')?.id === '885112919677866004') {
@@ -109,14 +108,14 @@ module.exports = {
         const gnu = ['Ubuntu GNU/Linux 21.04', 'Manjaro GNU/Linux 21.1.2', 'Alpine Linux 3.14.2', 'Arch Linux 2021.09.01', 'AmogOS Linux v1.3.0', 'linux Linux']
         const pickGnu = Math.floor(Math.random() * gnu.length)
         const host = [win[Math.floor(Math.random() * win.length)], mac[Math.floor(Math.random() * mac.length)], gnu[pickGnu]]
-        const dir = [`C:\\Users\\${interaction.user.username}\\`, `/Users/${interaction.user.username.toLowerCase()}/`, `/home/${interaction.user.username.toLowerCase()}/`]
+        const dir = [`C:\\Users\\${interaction.user.username}\\\\`, `/Users/${interaction.user.username.toLowerCase()}/`, `/home/${interaction.user.username.toLowerCase()}/`]
         const model = ['-MacBook-Pro', '-iMac-Pro', '-iMac', '-MacBook-Air', '-MacBook', '-Mac-Pro']
         const lin = ['ubuntu', 'manjaro', 'alpine', 'arch', 'amogos', 'linux']
         const machine = [`${interaction.guild.name.toUpperCase().replace(/\s+/g, "_")}`, `${interaction.user.username}s${model[Math.floor(Math.random() * model.length)]}`, lin[pickGnu]]
         const user = [interaction.user.username, interaction.user.username.toLowerCase(), interaction.user.username.toLowerCase()]
         const platform = Math.floor(Math.random() * host.length)
         const msg = [`// Running as **${user[platform]}** on **${machine[platform]}** under **`, `// Running as **${user[platform]}** on **${machine[platform]}** under **`, `// Running as **${user[platform]}** on **${machine[platform]}** under **`]
-        const file = ['__init__.py', 'index.js', 'index.ts']
+        const file = ['\\_\\_init\\_\\_.py.py', 'index.js', 'index.ts']
         const dm = ['only pixel\'s allowed to see my titty vs', 'hey can i have your balls', 'why are you cheating on me with a bar stool', 'hey can you send me your hentai pics', '*can you sit on me?*', 'baybee~ remember you said you had that foot massage coupon in your underwear? could i have it i want to smell it', 'my teacher came to belle delphine in class today', 'hi, can i see what your dick looks like? its for a friend dont worry', 'is it normal that my pee is white?', 'neophyte is just the greatest dont you agree', 'RGB>LGBTQ', 'thats weirder than getting dick from richard', '❤️  mending villager x neo ❤️']
         const author = ['Neophyte#9119', 'Kirbo#9631', 'Kirbo#9631', 'Kirbo#9631', 'Kirbo#9631', 'citrax#1511', 'citrax#1511', 'citrax#1511', 'citrax#1511', 'Lia Huntress#4524', 'Mystic115#4447', 'Ragna#3779', 'otter#6412']
         const pickDM = Math.floor(Math.random() * dm.length)
@@ -128,7 +127,7 @@ module.exports = {
         await interaction.editReply(`<a:loading:887182267254997002> Hacking ${interaction.options.getUser('victim')?.username}...`)
 
         const channel = Botphyte.channels.cache.get(interaction.channelId);
-        await channel.send(`┌─[${user[platform]}@${machine[platform]}]─[<t:${time}>]─(${dir[platform]}${file[filepick]}) (LOG)\n└─$ Reporting account for TOS violations...`).then(async sentMessage => {
+        await channel.send(`┌─[${user[platform]}@${machine[platform]}]─[<t:${Math.floor(Date.now() / 1000)}>]─(${dir[platform]}${file[filepick]}) (LOG)\n└─$ Reporting account for TOS violations...`).then(async sentMessage => {
 
             // #region More Variables
             /* 
@@ -164,47 +163,47 @@ module.exports = {
             // #endregion More Variables
             await wait(Math.floor(Math.random() * 1500))
 
-            await sentMessage.edit(`┌─[${user[platform]}@${machine[platform]}]─[<t:${time}>]─(${dir[platform]}${file[filepick]}) (LOG)\n└─$ Successfully sent support request.`)
+            await sentMessage.edit(`┌─[${user[platform]}@${machine[platform]}]─[<t:${Math.floor(Date.now() / 1000)}>]─(${dir[platform]}${file[filepick]}) (LOG)\n└─$ Successfully sent support request.`)
             await wait(5000)
             
-            await sentMessage.edit(`┌─[${user[platform]}@${machine[platform]}]─[<t:${time}>]─(${dir[platform]}${file[filepick]}) (LOG)\n└─$ ${action[randomVR]} \`${attack[Math.floor(Math.random() * attack.length)]}:${os[randomVR]}/${name[randomName]}.${variant[Math.floor(Math.random() * variant.length)]}${suffix[Math.floor(Math.random() * suffix.length)]}\`...`)
+            await sentMessage.edit(`┌─[${user[platform]}@${machine[platform]}]─[<t:${Math.floor(Date.now() / 1000)}>]─(${dir[platform]}${file[filepick]}) (LOG)\n└─$ ${action[randomVR]} \`${attack[Math.floor(Math.random() * attack.length)]}:${os[randomVR]}/${name[randomName]}.${variant[Math.floor(Math.random() * variant.length)]}${suffix[Math.floor(Math.random() * suffix.length)]}\`...`)
             await wait(Math.floor(Math.random() * 10000));
 
-            await sentMessage.edit(`┌─[${user[platform]}@${machine[platform]}]─[<t:${time}>]─(${dir[platform]}${file[filepick]}) (LOG)\n└─$ Successfully ${actionPast[randomVR]} \`${name[randomName]}${type[randomVR]}\`.`);
+            await sentMessage.edit(`┌─[${user[platform]}@${machine[platform]}]─[<t:${Math.floor(Date.now() / 1000)}>]─(${dir[platform]}${file[filepick]}) (LOG)\n└─$ Successfully ${actionPast[randomVR]} \`${name[randomName]}${type[randomVR]}\`.`);
             await wait(5000);
 
-            await sentMessage.edit(`┌─[${user[platform]}@${machine[platform]}]─[<t:${time}>]─(${dir[platform]}${file[filepick]}) (LOG)\n└─$ Finding IP address...`)
+            await sentMessage.edit(`┌─[${user[platform]}@${machine[platform]}]─[<t:${Math.floor(Date.now() / 1000)}>]─(${dir[platform]}${file[filepick]}) (LOG)\n└─$ Finding IP address...`)
             await wait(Math.floor(Math.random() * 1000))
 
-            await sentMessage.edit(`┌─[${user[platform]}@${machine[platform]}]─[<t:${time}>]─(${dir[platform]}${file[filepick]}) (LOG)\n└─$ The IP address is \`${ip[randomIP]}\`, located at \`${geo[randomIP]}\`.`)
+            await sentMessage.edit(`┌─[${user[platform]}@${machine[platform]}]─[<t:${Math.floor(Date.now() / 1000)}>]─(${dir[platform]}${file[filepick]}) (LOG)\n└─$ The IP address is \`${ip[randomIP]}\`, located at \`${geo[randomIP]}\`.`)
             await wait(5000)
 
-            await sentMessage.edit(`┌─[${user[platform]}@${machine[platform]}]─[<t:${time}>]─(${dir[platform]}${file[filepick]}) (LOG)\n└─$ Brute-forcing Discord login... This might take a while.`)
+            await sentMessage.edit(`┌─[${user[platform]}@${machine[platform]}]─[<t:${Math.floor(Date.now() / 1000)}>]─(${dir[platform]}${file[filepick]}) (LOG)\n└─$ Brute-forcing Discord login... This might take a while.`)
             await wait(Math.floor(Math.random() * 30000))
 
-            await sentMessage.edit(`┌─[${user[platform]}@${machine[platform]}]─[<t:${time}>]─(${dir[platform]}${file[filepick]}) (LOG)\n└─$ Login guessed.\n\nEmail: \`${addresses[Math.floor(Math.random() * addresses.length)]}@${domain[Math.floor(Math.random() * domain.length)]}.${ending[Math.floor(Math.random() * ending.length)]}\`\nPassword: \`${pass[Math.floor(Math.random() * pass.length)]}\``)
+            await sentMessage.edit(`┌─[${user[platform]}@${machine[platform]}]─[<t:${Math.floor(Date.now() / 1000)}>]─(${dir[platform]}${file[filepick]}) (LOG)\n└─$ Login guessed.\n\nEmail: \`${addresses[Math.floor(Math.random() * addresses.length)]}@${domain[Math.floor(Math.random() * domain.length)]}.${ending[Math.floor(Math.random() * ending.length)]}\`\nPassword: \`${pass[Math.floor(Math.random() * pass.length)]}\``)
             await wait(5000)
 
-            await sentMessage.edit(`┌─[${user[platform]}@${machine[platform]}]─[<t:${time}>]─(${dir[platform]}${file[filepick]}) (LOG)\n└─$ Bypassing two-factor authentication... This might take a while.`)
+            await sentMessage.edit(`┌─[${user[platform]}@${machine[platform]}]─[<t:${Math.floor(Date.now() / 1000)}>]─(${dir[platform]}${file[filepick]}) (LOG)\n└─$ Bypassing two-factor authentication... This might take a while.`)
             await wait(Math.floor(Math.random() * 60000))
 
-            await sentMessage.edit(`┌─[${user[platform]}@${machine[platform]}]─[<t:${time}>]─(${dir[platform]}${file[filepick]}) (LOG)\n└─$ Two-factor authentication bypassed.`)
+            await sentMessage.edit(`┌─[${user[platform]}@${machine[platform]}]─[<t:${Math.floor(Date.now() / 1000)}>]─(${dir[platform]}${file[filepick]}) (LOG)\n└─$ Two-factor authentication bypassed.`)
             await wait(5000)
 
-            await sentMessage.edit(`┌─[${user[platform]}@${machine[platform]}]─[<t:${time}>]─(${dir[platform]}${file[filepick]}) (LOG)\n└─$ Finding latest DM...`)
+            await sentMessage.edit(`┌─[${user[platform]}@${machine[platform]}]─[<t:${Math.floor(Date.now() / 1000)}>]─(${dir[platform]}${file[filepick]}) (LOG)\n└─$ Finding latest DM...`)
             await wait(Math.floor(Math.random() * 4000))
 
-            await sentMessage.edit(`┌─[${user[platform]}@${machine[platform]}]─[<t:${time}>]─(${dir[platform]}${file[filepick]}) (LOG)\n└─$ Latest DM found.\n\nAuthor: \`${author[pickDM]}\`\nMessage: \`${dm[pickDM]}\``)
+            await sentMessage.edit(`┌─[${user[platform]}@${machine[platform]}]─[<t:${Math.floor(Date.now() / 1000)}>]─(${dir[platform]}${file[filepick]}) (LOG)\n└─$ Latest DM found.\n\nAuthor: \`${author[pickDM]}\`\nMessage: \`${dm[pickDM]}\``)
             await wait(5000)
 
-            await sentMessage.edit(`┌─[${user[platform]}@${machine[platform]}]─[<t:${time}>]─(${dir[platform]}${file[filepick]}) (LOG)\n└─$ Selling data to the government...`)
+            await sentMessage.edit(`┌─[${user[platform]}@${machine[platform]}]─[<t:${Math.floor(Date.now() / 1000)}>]─(${dir[platform]}${file[filepick]}) (LOG)\n└─$ Selling data to the government...`)
             await wait(Math.floor(Math.random() * 10000))
 
-            await sentMessage.edit(`┌─[${user[platform]}@${machine[platform]}]─[<t:${time}>]─(${dir[platform]}${file[filepick]}) (LOG)\n└─$ Sold data to goverment for AUD$${Math.floor(Math.random() * 100000).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}.`)
+            await sentMessage.edit(`┌─[${user[platform]}@${machine[platform]}]─[<t:${Math.floor(Date.now() / 1000)}>]─(${dir[platform]}${file[filepick]}) (LOG)\n└─$ Sold data to goverment for AUD$${Math.floor(Math.random() * 100000).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}.`)
             await wait(Math.floor(Math.random() * 10000))
         })
 
-        await interaction.editReply(`Hacking complete!`)
         }
+        await interaction.editReply(`:white_check_mark: Hacking complete!`)
     }
 }
