@@ -5,6 +5,7 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { MessageEmbed, MessageActionRow, MessageButton } = require('discord.js');
 const config = require('../config.json');
+const api = require('../json/api.json');
 const fetch = require('node-fetch');
 
 module.exports = {
@@ -36,7 +37,7 @@ module.exports = {
             )
 
         if(interaction.options.getSubcommand() === 'worldwide') {
-            const apiFetch = await fetch(`https://disease.sh/v3/covid-19/all`).then(res => res.json())
+            const apiFetch = await fetch(`${api.covid}all`).then(res => res.json())
 
             const worldwideEmbed = new MessageEmbed()
                 .setColor(config.embed.colour)
@@ -52,12 +53,12 @@ module.exports = {
                     { name: 'Deaths', value: (apiFetch.deaths).toLocaleString('en-AU'), inline: true },
                     { name: 'Deaths today', value: (apiFetch.todayDeaths).toLocaleString('en-AU'), inline: true },
                 )
-                .setFooter(`Fetched from https://disease.sh/v3/covid-19/all.`);
+                .setFooter(`Fetched from ${api.covid}all.`);
             
             await interaction.reply({ embeds: [worldwideEmbed], components: [button] })
         } else if(interaction.options.getSubcommand() === 'continent') {
             const continent = interaction.options.getString('area');
-            const apiContinent = await fetch(`https://disease.sh/v3/covid-19/continents/${continent}`).then(res => res.json());
+            const apiContinent = await fetch(`${api.covid}continents/${continent}`).then(res => res.json());
 
             const continentEmbed = new MessageEmbed()
                 .setColor(config.embed.colour)
@@ -73,12 +74,12 @@ module.exports = {
                     { name: 'Deaths', value: (apiContinent.deaths).toLocaleString('en-AU'), inline: true },
                     { name: 'Deaths today', value: (apiContinent.todayDeaths).toLocaleString('en-AU'), inline: true },
                 )
-                .setFooter(`Fetched from https://disease.sh/v3/covid-19/continents/${continent}.`);
+                .setFooter(`Fetched from ${api.covid}continents/${continent}.`);
         
             await interaction.reply({ embeds: [continentEmbed], components: [button] })
         } else if(interaction.options.getSubcommand() === 'country') {
             const country = interaction.options.getString('region');
-            const apiCountry = await fetch(`https://disease.sh/v3/covid-19/countries/${country}`).then(res => res.json());
+            const apiCountry = await fetch(`${api.covid}countries/${country}`).then(res => res.json());
 
             const countryEmbed = new MessageEmbed()
                 .setColor(config.embed.colour)
@@ -94,7 +95,7 @@ module.exports = {
                     { name: 'Deaths', value: (apiCountry.deaths).toLocaleString('en-AU'), inline: true },
                     { name: 'Deaths today', value: (apiCountry.todayDeaths).toLocaleString('en-AU'), inline: true },
                 )
-                .setFooter(`Fetched from https://disease.sh/v3/covid-19/countries/${country}.`);
+                .setFooter(`Fetched from ${api.covid}countries/${country}.`);
         
             await interaction.reply({ embeds: [countryEmbed], components: [button] })
         }
