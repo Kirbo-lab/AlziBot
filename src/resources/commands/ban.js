@@ -16,16 +16,20 @@ module.exports = {
             // Fetch user.
             const user = interaction.options.getUser('user');
             
-            // Ban user.
-            interaction.guild.members.ban(user);
+            if(user.id === interaction.user.id) {
+                interaction.reply({ content: 'You can\'t ban yourself, dummy!', ephemeral: true })
+            } else {
+                // Ban user.
+                interaction.guild.members.ban(user);
 
-            const embed = new MessageEmbed()
-                .setColor(config.embed.colour)
-                .setTitle('Success!')
-                .setDescription(`I have successfully banned ${user}!`)
+                const embed = new MessageEmbed()
+                    .setColor(config.embed.colour)
+                    .setTitle('Success!')
+                    .setDescription(`I have successfully banned ${user}!`)
 
-            // Reply to interaction.
-            interaction.reply({ embeds: [embed] })
+                // Reply to interaction.
+                interaction.reply({ embeds: [embed] })
+            }
         } else {
             // Reply to interaction.
             interaction.reply({ content: `You do not have \`BAN_MEMBERS\` permissions required to run this command!`, ephemeral: true })
