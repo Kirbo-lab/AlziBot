@@ -23,17 +23,21 @@ module.exports = {
 
             // Fetch user.
             const user = interaction.options.getMember('user');
-            
-            // Add muted role.
-            user.roles.add(role);
 
-            const embed = new MessageEmbed()
-                .setColor(config.embed.colour)
-                .setTitle('Success!')
-                .setDescription(`I have successfully muted ${user}!`)
+            if(user.id === interaction.user.id) {
+                interaction.reply({ content: 'You can\'t mute yourself, dummy!', ephemeral: true })
+            } else {
+                // Add muted role.
+                user.roles.add(role);
 
-            // Reply to interaction.
-            interaction.reply({ embeds: [embed] })
+                const embed = new MessageEmbed()
+                    .setColor(config.embed.colour)
+                    .setTitle('Success!')
+                    .setDescription(`I have successfully muted ${user}!`)
+
+                // Reply to interaction.
+                interaction.reply({ embeds: [embed] })
+            }
         } else {
             // Reply to interaction.
             interaction.reply({ content: `You do not have \`MANAGE_MESSAGES\` permissions required to run this command!`, ephemeral: true })

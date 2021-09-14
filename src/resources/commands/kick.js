@@ -16,16 +16,20 @@ module.exports = {
             // Fetch user.
             const user = interaction.options.getUser('user');
             
-            // Kick user.
-            interaction.guild.members.kick(user);
+            if(user.id === interaction.user.id) {
+                interaction.reply({ content: 'You can\'t kick yourself, dummy!', ephemeral: true })
+            } else {
+                // Kick user.
+                interaction.guild.members.kick(user);
 
-            const embed = new MessageEmbed()
-                .setColor(config.embed.colour)
-                .setTitle('Success!')
-                .setDescription(`I have successfully kicked ${user}!`)
+                const embed = new MessageEmbed()
+                    .setColor(config.embed.colour)
+                    .setTitle('Success!')
+                    .setDescription(`I have successfully kick ${user}!`)
 
-            // Reply to interaction.
-            interaction.reply({ embeds: [embed] })
+                // Reply to interaction.
+                interaction.reply({ embeds: [embed] })
+            }
         } else {
             // Reply to interaction.
             interaction.reply({ content: `You do not have \`KICK_MEMBERS\` permissions required to run this command!`, ephemeral: true })
