@@ -4,7 +4,7 @@
 
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { Permissions } = require('discord.js');
-const config = require('../config.json');
+const server = require('../config.json');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -15,10 +15,10 @@ module.exports = {
         if (interaction.member.permissions.has(Permissions.FLAGS.ADMINISTRATOR)) {
             const member = interaction.options.getMember('user');
     
-            if(member.roles.cache.some(role => role.id === config.server.modRole)) {
+            if(member.roles.cache.some(role => role.id === server.modRole)) {
                 interaction.reply({ content: `This user already has moderator privileges.`, ephemeral: true })
             } else {
-                member.roles.add(config.server.modRole).then(() => {
+                member.roles.add(server.modRole).then(() => {
                     interaction.reply({ content: `User has been promoted to moderator!`, ephemeral: true })
                     member.send(`How exciting, you have been promoted to **Moderator** on **${interaction.guild.name}**!`);
                 })
