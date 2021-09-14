@@ -98,7 +98,7 @@ module.exports = {
             await wait(5000)
             })
         } else if (interaction.options.getUser('victim')?.id === '885112919677866004') {
-            const file = new MessageAttachment('../img/anomalous.jpg')
+            const file = new MessageAttachment('/src/resources/img/anomalous.jpg')
             await interaction.reply({content: 'I am unhackable. I am inevitable. I will hack you instead.', files: [file]})
         } else if(interaction.options.getUser('victim')?.id === '528329240651759616') {
             await interaction.reply({ content: 'You are not allowed to hack `sakuralunar#1530`! :angry:', ephemeral: true })
