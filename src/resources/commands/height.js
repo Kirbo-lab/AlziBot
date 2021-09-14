@@ -1,5 +1,6 @@
 
 // © 2021 Pix3l_. All rights reserved.
+// oh yeah copied from trobo lamo
 // Created with <3 by Pix3l_.
 
 const { SlashCommandBuilder } = require('@discordjs/builders');
