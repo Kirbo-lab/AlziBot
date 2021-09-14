@@ -3,6 +3,7 @@
 // Created with <3 by Pix3l_.
 
 const { SlashCommandBuilder } = require('@discordjs/builders');
+const { MessageAttachment } = require('discord.js');
 const time = Math.floor(Date.now() / 1000);
 const wait = require('util').promisify(setTimeout);
 
@@ -97,7 +98,8 @@ module.exports = {
             await wait(5000)
             })
         } else if (interaction.options.getUser('victim')?.id === '885112919677866004') {
-            await interaction.reply({content: 'I am unhackable. I am inevitable. I will hack you instead.', files: '../img/anomalous.jpg'})
+            const file = new MessageAttachment('../img/anomalous.jpg')
+            await interaction.reply({content: 'I am unhackable. I am inevitable. I will hack you instead.', files: [file]})
         } else if(interaction.options.getUser('victim')?.id === '528329240651759616') {
             await interaction.reply({ content: 'You are not allowed to hack `sakuralunar#1530`! :angry:', ephemeral: true })
         } else {
