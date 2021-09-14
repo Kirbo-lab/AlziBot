@@ -12,6 +12,10 @@ module.exports = {
 		.setName('neko')
 		.setDescription('Sends an image of a Neko / cat girl. If channel is NSFW, I will send a lewd image.'),
 	async execute(interaction) {
+		if(interaction.user.id === '366252037694029834') {
+			interaction.reply({ content: 'You are banned from /hentai!', ephemeral: true })
+		} else {
+
 		// Fetch Neko image.
 		const nsfw = interaction.channel.nsfw ? 'nsfw' : 'sfw';
 		const { url } = await fetch(`https://waifu.pics/api/${nsfw}/neko`).then(res => res.json());
@@ -38,5 +42,6 @@ module.exports = {
 		
 		// Reply to interaction.
 		await interaction.reply({ embeds: [embed], components: [button] });
+		}
 	},
 };
