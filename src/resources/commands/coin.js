@@ -5,6 +5,7 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { MessageEmbed } = require('discord.js');
 const config = require('../config.json');
+const misc = require('../json/misc.json');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -16,7 +17,7 @@ module.exports = {
         // Choose a side.
         const chosen = side[Math.floor(Math.random() * side.length)]
         // Define images.
-        const coin = { heads: config.misc.coins.heads, tails: config.misc.coins.tails }
+        const coin = { heads: misc.coins.heads, tails: misc.coins.tails }
 
         // #region Embeds
         const embed = new MessageEmbed()

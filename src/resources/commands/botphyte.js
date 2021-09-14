@@ -5,6 +5,7 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { MessageEmbed, MessageActionRow, MessageButton } = require('discord.js');
 const config = require('../config.json');
+const owner = require('../json/owner.json');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -18,7 +19,10 @@ module.exports = {
 					  .setDescription('Displays latency between Botphyte and the API.'))
 	  .addSubcommand(subcommand => 
 			subcommand.setName('license')
-					  .setDescription('Displays the Botphyte LICENSE.')),
+					  .setDescription('Displays the Botphyte license.'))
+	  .addSubcommand(subcommand => 
+			subcommand.setName('kill')
+					  .setDescription('Kills the bot process.')),
     async execute(interaction) {
 
         if(interaction.options.getSubcommand() === 'about') {
@@ -33,7 +37,7 @@ module.exports = {
 					{ name: ':bug: Reporting bugs and inquiries', value: 'If you are encountering issues or having trouble with this bot, feel free to let me know by filing a bug report over the GitHub. Before making a new bug report however, please search for existing bug reports.'},
 					{ name: ':blossom: Contributing to Botphyte', value: 'If you know how to write code in JavaScript with Discord.js 13, you can contribute to Botphyte by improving the code, simply create a pull request and propose your changes!'},
 				)
-			.setFooter(config.embed.footerText, config.embed.footerImage)
+				.setFooter(config.embed.footerText, config.embed.footerImage)
 			// #endregion Embeds
 			
 			// #region Buttons
@@ -42,31 +46,31 @@ module.exports = {
 						new MessageButton()
 							.setStyle('LINK')
 							.setLabel('Join the support Discord server!')
-							.setURL(config.owner.support)
+							.setURL(owner.support)
 					)
 					.addComponents(
 						new MessageButton()
 							.setStyle('LINK')
 							.setLabel('See the documentation!')
-							.setURL(config.owner.github.wiki)
+							.setURL(owner.github.wiki)
 					)
 					.addComponents(
 						new MessageButton()
 							.setStyle('LINK')
 							.setLabel('Star me on GitHub!')
-							.setURL(config.owner.github.main)
+							.setURL(owner.github.main)
 					)
 					.addComponents(
 						new MessageButton()
 							.setStyle('LINK')
 							.setLabel('Support me on Patreon!')
-							.setURL(config.owner.donate)
+							.setURL(owner.donate)
 					)
 					.addComponents(
 						new MessageButton()
 							.setStyle('LINK')
 							.setLabel('Report bugs on GitHub!')
-							.setURL(config.owner.github.issues)
+							.setURL(owner.github.issues)
 					);
 			// #endregion Buttons
 
@@ -81,6 +85,7 @@ module.exports = {
 				const latencyEmbed = new MessageEmbed()
 					.setTitle('Pong! 🏓')
 					.setDescription(`This took **${ms} ms**.`)
+					.setFooter(config.embed.footerText, config.embed.footerImage)
 
 				// If the ping is a higher than certain number, use a different colour.
 				       if(ms < 250) {
@@ -108,19 +113,30 @@ module.exports = {
 				.addComponents(
 					new MessageButton()
 						.setStyle('LINK')
-						.setLabel('See the file on GitHub!')
+						.setLabel('See the file on the repository!')
 						.setURL('https://github.com/WhosPix3l/Botphyte/blob/main/LICENSE')
 				)
 				.addComponents(
 					new MessageButton()
 						.setStyle('LINK')
-						.setLabel('See the LICENSE!')
+						.setLabel('See the license on SPDX!')
 						.setURL('https://spdx.org/licenses/GLWTPL.html')
 				)
 
 			// Reply to interaction.
 			interaction.reply({ embeds: [licenseEmbed], components: [licenseButton] });
 
-	}
+		} else if(interaction.options.getSubcommand() === 'kill') {
+			if(interaction.user.id === owner.botOwner) {
+				interaction.reply({ content: 'Killing the bot process.', ephemeral: true })
+				function task(i) {
+					setTimeout(function() {
+						process.exit()
+					}, 5000 * i);
+				  }
+			} else {
+				interaction.reply({ content: `You must be \`${owner.botOwnerTag}\` to run this command!`, ephemeral: true })
+			}
+		}
     }
 }

@@ -12,6 +12,10 @@ module.exports = {
 		.setName('kitsune')
 		.setDescription('Sends an image of a Kitsune / fox girl. If channel is NSFW, I will send a lewd image.'),
 	async execute(interaction) {
+		if(interaction.user.id === '366252037694029834') {
+			interaction.reply({ content: 'You are banned from /hentai!', ephemeral: true })
+		} else {
+
 		// Fetch kitsune image.
 		const nsfw = interaction.channel.nsfw ? 'lewdk' : 'fox_girl';
 		const { url } = await fetch(`https://nekos.life/api/v2/img/${nsfw}`).then(res => res.json());
@@ -38,5 +42,6 @@ module.exports = {
 		
 		// Reply to interaction.
 		await interaction.reply({ embeds: [embed], components: [button] });
+		}
 	},
 };

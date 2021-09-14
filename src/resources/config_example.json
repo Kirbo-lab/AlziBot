@@ -5,62 +5,9 @@
         "guildID": "XXXXXXXXXXXXXXXXXX",
         "devGuildID": "XXXXXXXXXXXXXXXXXX"
     },
-    "api": {
-        "twitch": {
-            "clientID": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
-            "clientSecret": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
-            "token": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
-        }
-    },
-    "server": {
-        "logs": "XXXXXXXXXXXXXXXXXX",
-        "modRole": "XXXXXXXXXXXXXXXXXX",
-        "invite": "https://discord.gg/XXXXXX",
-        "rules": {
-            "ruleOne": "Enter your first rule here!",
-            "ruleTwo": "Enter your second rule here!",
-            "ruleThree": "Enter your third rule here!",
-            "ruleFour": "Enter your fourth rule here!",
-            "ruleFive": "Enter your fifth rule here!",
-            "ruleSix": "Enter your sixth rule here!",
-            "ruleSeven": "Enter your seventh rule here!",
-            "ruleEight": "Enter your last rule here, to add more, check out the rules.js file!"
-        }
-    },
     "embed": {
         "colour": "#00E7FF",
         "footerText": "Botphyte • Made with 🖤 by Pixel",
         "footerImage": "https://cdn.discordapp.com/avatars/783272839435255818/4fc317d2d230bad7f965fa48f35c1d33.webp"
-    },
-    "owner": {
-        "github": {
-            "main": "https://github.com/WhosPix3l/Botphyte",
-            "issues": "https://github.com/WhosPix3l/Botphyte/issues"
-        },
-        "donate": "https://patreon.com/Pix3l_",
-        "botOwner": "XXXXXXXXXXXXXXXXXX",
-        "botOwnerTag": "XXXXXX#1234"
-    },
-    "socials": {
-        "name": "XXXXXX",
-        "pronouns": {
-            "pronouns1": "Pronouns here, such as he",
-            "pronouns2": "Pronouns here, such as him",
-            "pronouns3": "Pronouns here, such as his"
-        },
-        "picture": "Paste a link to your profile picture here",
-        "bio": "Enter your bio here",
-        "links": {
-            "youtube": "Add your YouTube channel URL here",
-            "twitch": "Add your Twitch username here",
-            "instagram": "Add your Instagram profile URL here",
-            "instagram2": "Add your second Instagram profile URL here"
-        }
-    },
-    "misc": {
-        "coins": {
-            "heads": "Add an image for heads coins here",
-            "tails": "Add an image for tails coins here"
-        }
     }
 }   

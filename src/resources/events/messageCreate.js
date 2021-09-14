@@ -3,9 +3,9 @@
 // Created with <3 by Pix3l_.
 
 // #region Import and declare
-const { MessageEmbed, MessageButton, MessageActionRow, MessageAttachment } = require('discord.js')
+const { MessageEmbed, MessageButton, MessageActionRow } = require('discord.js')
 const colors = require('colors');
-const config = require('../config.json')
+const owner = require('../json/owner.json')
 var date_time = new Date();
 let hour = ("0" + date_time.getHours()).slice(-2);
 let minute = ("0" + date_time.getMinutes()).slice(-2);
@@ -30,7 +30,7 @@ module.exports = {
                 new MessageButton()
                     .setStyle('LINK')
                     .setLabel('Help improve Botphyte here!')
-                    .setURL(config.owner.github.issues)
+                    .setURL(owner.github.issues)
             );
 
         const goodBot = new MessageActionRow()
@@ -38,13 +38,13 @@ module.exports = {
                 new MessageButton()
                     .setStyle('LINK')
                     .setLabel('Star me on GitHub!')
-                    .setURL(config.owner.github.main)
+                    .setURL(owner.github.main)
             )
             .addComponents(
                 new MessageButton()
                     .setStyle('LINK')
                     .setLabel('Support me on Patreon!')
-                    .setURL(config.owner.donate)
+                    .setURL(owner.donate)
             );
         // #endregion Buttons
 
