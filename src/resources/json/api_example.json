@@ -4,5 +4,6 @@
         "clientSecret": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
         "token": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
         "url": "https://api.twitch.tv/helix/streams/"
-    }
+    },
+    "covid": "https://disease.sh/v3/covid-19/"
 }
