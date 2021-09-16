@@ -2,10 +2,10 @@
     "github": {
         "main": "https://github.com/WhosPix3l/Botphyte",
         "issues": "https://github.com/WhosPix3l/Botphyte/issues",
-        "support": "https://discord.gg/75tDms2HcX",
         "wiki": "https://github.com/WhosPix3l/Botphyte/wiki"
     },
     "donate": "https://patreon.com/Pix3l_",
+    "support": "https://discord.gg/75tDms2HcX",
     "botOwner": "783272839435255818",
     "botOwnerTag": "Pixel#4436"
 }
