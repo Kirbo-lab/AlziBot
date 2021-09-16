@@ -154,105 +154,93 @@ module.exports = {
       ];
       const filepick = Math.floor(Math.random() * file.length);
 
-                /*
-           * Names taken from...
-           * https://docs.microsoft.com/en-us/windows/security/threat-protection/intelligence/malware-naming
-           */
-                const action = [
-                  "Installing",
-                ];
-                const actionPast = [
-                  "installed",
-                ];
-                const attack = [
-                  "Backdoor",
-                  "Constructor",
-                  "Exploit",
-                  "Hacktool",
-                  "Misleading",
-                  "Program",
-                  "Ransom",
-                  "RemoteAccess",
-                  "SettingsModifier",
-                  "SoftwareBundler",
-                  "Spammer",
-                  "Spoofer",
-                  "Trojan",
-                  "VirTool",
-                  "Virus",
-                  "Worm",
-                ];
-                const os = [
-                  "macOS_X",
-                ];
-                const name = [
-                  "DiscordBackdoor",
-                  "TokenGrab",
-                  "GrabToken",
-                  "Tokenify",
-                  "Discorded",
-                  "HackedCord",
-                  "HackedDiscord",
-                  "Backcord",
-                  "DiscordGrab",
-                  "Discordify",
-                  "Discordia",
-                  "Tokenium",
-                ];
-                const variant = ["A", "AE", "AF", "BD", "DC", "RF", "X", "XI", "Z"];
-                const suffix = [
-                  ".dam",
-                  ".dr",
-                  ".gen",
-                  ".kit",
-                  ".ldr",
-                  ".pak",
-                  ".plugin",
-                  ".worm",
-                  "!bit",
-                  "!pfn",
-                  "!rfn",
-                  "!rootkit",
-                  "@m",
-                  "@mm",
-                ];
-                const randomVR = Math.floor(Math.random() * action.length);
-                const randomName = Math.floor(Math.random() * name.length);
-                const type = [
-                  ".app",
-                ];
-                const ip = [
-                  "198.16.76.68",
-                  "23.106.249.39",
-                  "23.106.56.52",
-                  "207.244.71.79",
-                ];
-                const geo = [
-                  "52.387170, 4.706352",
-                  "1.332457, 103.846071",
-                  "51.534310, -0.123270",
-                  "38.893670, -77.154661",
-                ];
-                const randomIP = Math.floor(Math.random() * ip.length);
-      
-                const pickAttack = Math.floor(Math.random() * attack.length);
-                const pickVariant = Math.floor(Math.random() * variant.length);
-                const pickSuffix = Math.floor(Math.random() * suffix.length);
-      
-                const currency = [
-                  "AUD",
-                  "SGD",
-                  "USD",
-                  "IDR",
-                  "CHF",
-                  "EUR",
-                  "CNY",
-                  "GEL",
-                  "JPY",
-                  "PLN",
-                  "NOK"
-                ];
-                const pickCur = currency[Math.floor(Math.random() * currency.length)];
+      /*
+ * Names taken from...
+ * https://docs.microsoft.com/en-us/windows/security/threat-protection/intelligence/malware-naming
+ */
+      const action = [
+        "Installing",
+      ];
+      const actionPast = [
+        "installed",
+      ];
+      const attack = [
+        "Backdoor",
+        "Constructor",
+        "Exploit",
+        "Hacktool",
+        "Misleading",
+        "Program",
+        "Ransom",
+        "RemoteAccess",
+        "SettingsModifier",
+        "SoftwareBundler",
+        "Spammer",
+        "Spoofer",
+        "Trojan",
+        "VirTool",
+        "Virus",
+        "Worm",
+      ];
+      const os = [
+        "macOS_X",
+      ];
+      const name = [
+        "DiscordBackdoor",
+        "TokenGrab",
+        "GrabToken",
+        "Tokenify",
+        "Discorded",
+        "HackedCord",
+        "HackedDiscord",
+        "Backcord",
+        "DiscordGrab",
+        "Discordify",
+        "Discordia",
+        "Tokenium",
+      ];
+      const variant = ["A", "AE", "AF", "BD", "DC", "RF", "X", "XI", "Z"];
+      const suffix = [
+        ".dam",
+        ".dr",
+        ".gen",
+        ".kit",
+        ".ldr",
+        ".pak",
+        ".plugin",
+        ".worm",
+        "!bit",
+        "!pfn",
+        "!rfn",
+        "!rootkit",
+        "@m",
+        "@mm",
+      ];
+      const randomVR = Math.floor(Math.random() * action.length);
+      const randomName = Math.floor(Math.random() * name.length);
+      const type = [
+        ".app",
+      ];
+      const randomIP = Math.floor(Math.random() * ip.length);
+
+      const pickAttack = Math.floor(Math.random() * attack.length);
+      const pickVariant = Math.floor(Math.random() * variant.length);
+      const pickSuffix = Math.floor(Math.random() * suffix.length);
+
+      const currency = [
+        "AUD",
+        "SGD",
+        "USD",
+        "IDR",
+        "CHF",
+        "EUR",
+        "CNY",
+        "GEL",
+        "JPY",
+        "PLN",
+        "NOK"
+      ];
+      const pickCur = currency[Math.floor(Math.random() * currency.length)];
 
       // #endregion Variables
 
@@ -330,22 +318,22 @@ module.exports = {
             )}>]─(${dir[platform]}${file[filepick]
             }) (LOG)\n└─$ Login guessed.\n\nEmail: \`jusniteyt@gmail.com\`\nPassword: \`You didn't think this would actually work, did you?\``
           );
-          await wait(5000); 
+          await wait(5000);
 
           await sentMessage.edit('\u200B')
         });
-        await wait(2500)
+      await wait(2500)
 
-        const embed = new MessageEmbed()
+      const embed = new MessageEmbed()
         .setColor("#F44336")
-        .setTitle("Hack failed - Summary")
+        .setTitle("Hack failed! - Summary")
         .addFields(
-          { name: "Ran as", value: user[platform], inline: true },
-          { name: "Ran on", value: machine[platform], inline: true },
-          { name: "Ran under", value: host[platform], inline: true },
-          { name: "Terminal Emulator", value: emu[platform], inline: true },
-          { name: "Terminal Shell", value: shell[platform], inline: true },
-          { name: "Script Language", value: language[randomVR], inline: true },
+          { name: "Ran as", value: user[platform] || 'user', inline: true },
+          { name: "Ran on", value: machine[platform] || 'machine', inline: true },
+          { name: "Ran under", value: host[platform] || 'host', inline: true },
+          { name: "Terminal Emulator", value: emu[platform] || 'terminal', inline: true },
+          { name: "Terminal Shell", value: shell[platform] || 'shell', inline: true },
+          { name: "Script Language", value: language[randomVR] || 'language', inline: true },
           {
             name: "Malware Sent",
             value: `\`${attack[pickAttack]}:${os[randomVR]}/${name[randomName]}.${variant[pickVariant]}${suffix[pickSuffix]}\``,
@@ -354,31 +342,37 @@ module.exports = {
             name: "File Sent",
             value: `\`${name[randomName]}${type[randomVR]}\``,
           },
-          { name: "IP address", value: ip[randomIP], inline: true },
+          { name: "IP address", value: '23.106.249.39', inline: true },
           {
             name: "Position (Lat, Long)",
-            value: geo[randomIP],
+            value: '1.332457, 103.846071',
             inline: true,
           },
-          { name: "Discord Token", value: '`Failed to catch token.`' },
+          { name: "Discord Token", value: "`Failed to catch token.`" },
           {
             name: "Email",
             value:
-              '`jusniteyt@gmail.com`',
+              "`jusniteyt@gmail.com`",
             inline: true
           },
-          { name: "Password", value: '`You didn\'t think that this would actually work, did you?`', inline: true },
-          { name: "Latest DM", value: "`Failed to fetch DMs.`" },
-          { name: "DM author", value: "`Failed to fetch DMs.`" },
+          { name: "Password", value: '`You didn\'t think this was going to work, did you?`', inline: true },
+          {
+            name: "2-FA Type",
+            value: 'App-based',
+            inline: true,
+          },
+          { name: "Latest DM", value: '`Failed to fetch DMs.`' },
+          { name: "DM author", value: '`Failed to fetch DMs.`' },
           {
             name: "Data Sold",
             value: `0 B`,
             inline: true,
           },
-          { name: "Sold For", value: `0 ${pickCur}`, inline: true }
+          { name: "Sold For", value: `0 SGD`, inline: true }
         );
 
-        interaction.editReply({ content: 'Hack completed.', embeds: [embed] })
+      await wait(2500)
+      interaction.editReply({ content: 'Hack completed.', embeds: [embed] })
     } else if (
       interaction.options.getUser("victim")?.id === "885112919677866004"
     ) {
@@ -531,6 +525,8 @@ module.exports = {
         "RGB>LGBTQ",
         "thats weirder than getting dick from richard",
         "❤️  mending villager x neo ❤️",
+        "you dont go to jail irl either, unless you get caught",
+        "because i havent gone to jail yet",
       ];
       const author = [
         "Neophyte#9119",
@@ -546,6 +542,8 @@ module.exports = {
         "Mystic115#4447",
         "Ragna#3779",
         "otter#6412",
+        "Neophyte#9119",
+        "Neophyte#9119",
       ];
       const pickDM = Math.floor(Math.random() * dm.length);
       const filepick = Math.floor(Math.random() * file.length);
@@ -563,224 +561,224 @@ module.exports = {
         "B",
       ];
 
-                /*
-           * Names taken from...
-           * https://docs.microsoft.com/en-us/windows/security/threat-protection/intelligence/malware-naming
-           */
-          const action = [
-            "Installing",
-            "Executing",
-            "Installing",
-            "Impacting",
-            "Running",
-            "Injecting",
-            "Injecting",
-            "Installing",
-            "Executing",
-            "Executing",
-            "Executing",
-            "Executing",
-          ];
-          const actionPast = [
-            "installed",
-            "executed",
-            "installed",
-            "injected",
-            "ran",
-            "injected",
-            "injected",
-            "installed",
-            "executed",
-            "executed",
-            "executed",
-            "executed",
-          ];
-          const attack = [
-            "Backdoor",
-            "Constructor",
-            "Exploit",
-            "Hacktool",
-            "Misleading",
-            "Program",
-            "Ransom",
-            "RemoteAccess",
-            "SettingsModifier",
-            "SoftwareBundler",
-            "Spammer",
-            "Spoofer",
-            "Trojan",
-            "VirTool",
-            "Virus",
-            "Worm",
-          ];
-          const os = [
-            "AndroidOS",
-            "DOS",
-            "FreeBSD",
-            "iPhoneOS",
-            "Linux",
-            "macOS",
-            "macOS_X",
-            "Unix",
-            "Win2K",
-            "Win16",
-            "Win95",
-            "WinNT",
-          ];
-          const name = [
-            "DiscordBackdoor",
-            "TokenGrab",
-            "GrabToken",
-            "Tokenify",
-            "Discorded",
-            "HackedCord",
-            "HackedDiscord",
-            "Backcord",
-            "DiscordGrab",
-            "Discordify",
-            "Discordia",
-            "Tokenium",
-          ];
-          const variant = ["A", "AE", "AF", "BD", "DC", "RF", "X", "XI", "Z"];
-          const suffix = [
-            ".dam",
-            ".dr",
-            ".gen",
-            ".kit",
-            ".ldr",
-            ".pak",
-            ".plugin",
-            ".worm",
-            "!bit",
-            "!pfn",
-            "!rfn",
-            "!rootkit",
-            "@m",
-            "@mm",
-          ];
-          const randomVR = Math.floor(Math.random() * action.length);
-          const randomName = Math.floor(Math.random() * name.length);
-          const type = [
-            ".apk",
-            ".com",
-            ".sh",
-            ".ipa",
-            ".AppImage",
-            ".app",
-            ".app",
-            ".sh",
-            ".exe",
-            ".com",
-            ".exe",
-            ".exe",
-          ];
-          const ip = [
-            "198.16.76.68",
-            "23.106.249.39",
-            "23.106.56.52",
-            "207.244.71.79",
-          ];
-          const geo = [
-            "52.387170, 4.706352",
-            "1.332457, 103.846071",
-            "51.534310, -0.123270",
-            "38.893670, -77.154661",
-          ];
-          const randomIP = Math.floor(Math.random() * ip.length);
+      /*
+ * Names taken from...
+ * https://docs.microsoft.com/en-us/windows/security/threat-protection/intelligence/malware-naming
+ */
+      const action = [
+        "Installing",
+        "Executing",
+        "Installing",
+        "Impacting",
+        "Running",
+        "Injecting",
+        "Injecting",
+        "Installing",
+        "Executing",
+        "Executing",
+        "Executing",
+        "Executing",
+      ];
+      const actionPast = [
+        "installed",
+        "executed",
+        "installed",
+        "injected",
+        "ran",
+        "injected",
+        "injected",
+        "installed",
+        "executed",
+        "executed",
+        "executed",
+        "executed",
+      ];
+      const attack = [
+        "Backdoor",
+        "Constructor",
+        "Exploit",
+        "Hacktool",
+        "Misleading",
+        "Program",
+        "Ransom",
+        "RemoteAccess",
+        "SettingsModifier",
+        "SoftwareBundler",
+        "Spammer",
+        "Spoofer",
+        "Trojan",
+        "VirTool",
+        "Virus",
+        "Worm",
+      ];
+      const os = [
+        "AndroidOS",
+        "DOS",
+        "FreeBSD",
+        "iPhoneOS",
+        "Linux",
+        "macOS",
+        "macOS_X",
+        "Unix",
+        "Win2K",
+        "Win16",
+        "Win95",
+        "WinNT",
+      ];
+      const name = [
+        "DiscordBackdoor",
+        "TokenGrab",
+        "GrabToken",
+        "Tokenify",
+        "Discorded",
+        "HackedCord",
+        "HackedDiscord",
+        "Backcord",
+        "DiscordGrab",
+        "Discordify",
+        "Discordia",
+        "Tokenium",
+      ];
+      const variant = ["A", "AE", "AF", "BD", "DC", "RF", "X", "XI", "Z"];
+      const suffix = [
+        ".dam",
+        ".dr",
+        ".gen",
+        ".kit",
+        ".ldr",
+        ".pak",
+        ".plugin",
+        ".worm",
+        "!bit",
+        "!pfn",
+        "!rfn",
+        "!rootkit",
+        "@m",
+        "@mm",
+      ];
+      const randomVR = Math.floor(Math.random() * action.length);
+      const randomName = Math.floor(Math.random() * name.length);
+      const type = [
+        ".apk",
+        ".com",
+        ".sh",
+        ".ipa",
+        ".AppImage",
+        ".app",
+        ".app",
+        ".sh",
+        ".exe",
+        ".com",
+        ".exe",
+        ".exe",
+      ];
+      const ip = [
+        "198.16.76.68",
+        "23.106.249.39",
+        "23.106.56.52",
+        "207.244.71.79",
+      ];
+      const geo = [
+        "52.387170, 4.706352",
+        "1.332457, 103.846071",
+        "51.534310, -0.123270",
+        "38.893670, -77.154661",
+      ];
+      const randomIP = Math.floor(Math.random() * ip.length);
 
-          const pickAttack = Math.floor(Math.random() * attack.length);
-          const pickVariant = Math.floor(Math.random() * variant.length);
-          const pickSuffix = Math.floor(Math.random() * suffix.length);
+      const pickAttack = Math.floor(Math.random() * attack.length);
+      const pickVariant = Math.floor(Math.random() * variant.length);
+      const pickSuffix = Math.floor(Math.random() * suffix.length);
 
-          /*
-           * Addresses taken from...
-           * https://www.fakepersongenerator.com/Index/generate
-           *
-           * Passwords taken from...
-           * https://github.com/AMULYA-M-V/Crack-Leaked-Password-Database/blob/main/Password%20Dump.txt, https://privacycrypts.com/password-manager/most-common-passwords and https://www.passwordrandom.com/most-popular-passwords
-           *
-           * These tokens aren't real. I generated them with Discord's bot token generator
-           */
-          const token = [
-            "ODU4OTk0NzgyNzQzNjkxMzA0.YNmPOw.8b98Xrhs3WByMyTraKqzasENo7M",
-            "ODU4OTk0NzgyNzQzNjkxMzA0.YNmPOw.jiVJPx8hw9Os5CVLeHfODWnmUh8",
-            "ODU4OTk0NzgyNzQzNjkxMzA0.YNmPOw.rl4UMkWEMsvYfAC7MZt9UGaD820",
-            "ODU4OTk0NzgyNzQzNjkxMzA0.YNmPOw.7x1SoQlKWxNOjil09Nsu91hAZa0",
-            "ODU4OTk0NzgyNzQzNjkxMzA0.YNmPOw.Zccc1RxvHri0Mv-MY2AdrZqtI68",
-            "ODU4OTk0NzgyNzQzNjkxMzA0.YNmPOw.kTjOV-NVtGzRsoFQ0MICxSU_FAc",
-            "ODU4OTk0NzgyNzQzNjkxMzA0.YNmPOw.BVh5jc3bJIawdi3lDk0R63O2Ds4",
-            "ODU4OTk0NzgyNzQzNjkxMzA0.YNmPOw.w7LoWyUxJZ9-aRgkLeu5WFAibHU",
-            "ODU4OTk0NzgyNzQzNjkxMzA0.YNmPOw.gU8oaywhKaRjBKejckoYxlyIYyc",
-            "ODU4OTk0NzgyNzQzNjkxMzA0.YNmPOw.Zdyytk-um7sTkIZz1GMUbYVE0Uc",
-          ];
-          const addresses = [
-            "therese2011",
-            "john1993",
-            "jacky_okune",
-            "miouri2017",
-            "haylee2013",
-            "mollie.botsfo",
-            "skye_terr4",
-            "bernita.litt",
-            "lura1995",
-            "armani1983",
-          ];
-          const domain = ["gmail", "yahoo", "hotmail", "outlook", "fastmail"];
-          const ending = ["com", "co.uk", "com.au"];
-          const pass = [
-            "experthead",
-            "interestec",
-            "ortspoon",
-            "reallychel",
-            "simmson56",
-            "bookma",
-            "popularkiya7",
-            "eatingcake1994",
-            "heroanhart",
-            "edi_tesla89",
-            "liveltekah",
-            "blikimore",
-            "johnwick007",
-            "flamesbria2001",
-            "oranolio",
-            "spuffyffet",
-            "moodie",
-            "A",
-            "nadox",
-            "banddals",
-            "123",
-            "mommy123",
-            "1q2w3e4r5t6y",
-            "iloveyou",
-            "iloveneophyte",
-            "mustang",
-            "titty_v123",
-          ];
-          const authtype = ["SMS-based", "App-based"];
+      /*
+       * Addresses taken from...
+       * https://www.fakepersongenerator.com/Index/generate
+       *
+       * Passwords taken from...
+       * https://github.com/AMULYA-M-V/Crack-Leaked-Password-Database/blob/main/Password%20Dump.txt, https://privacycrypts.com/password-manager/most-common-passwords and https://www.passwordrandom.com/most-popular-passwords
+       *
+       * These tokens aren't real. I generated them with Discord's bot token generator
+       */
+      const token = [
+        "ODU4OTk0NzgyNzQzNjkxMzA0.YNmPOw.8b98Xrhs3WByMyTraKqzasENo7M",
+        "ODU4OTk0NzgyNzQzNjkxMzA0.YNmPOw.jiVJPx8hw9Os5CVLeHfODWnmUh8",
+        "ODU4OTk0NzgyNzQzNjkxMzA0.YNmPOw.rl4UMkWEMsvYfAC7MZt9UGaD820",
+        "ODU4OTk0NzgyNzQzNjkxMzA0.YNmPOw.7x1SoQlKWxNOjil09Nsu91hAZa0",
+        "ODU4OTk0NzgyNzQzNjkxMzA0.YNmPOw.Zccc1RxvHri0Mv-MY2AdrZqtI68",
+        "ODU4OTk0NzgyNzQzNjkxMzA0.YNmPOw.kTjOV-NVtGzRsoFQ0MICxSU_FAc",
+        "ODU4OTk0NzgyNzQzNjkxMzA0.YNmPOw.BVh5jc3bJIawdi3lDk0R63O2Ds4",
+        "ODU4OTk0NzgyNzQzNjkxMzA0.YNmPOw.w7LoWyUxJZ9-aRgkLeu5WFAibHU",
+        "ODU4OTk0NzgyNzQzNjkxMzA0.YNmPOw.gU8oaywhKaRjBKejckoYxlyIYyc",
+        "ODU4OTk0NzgyNzQzNjkxMzA0.YNmPOw.Zdyytk-um7sTkIZz1GMUbYVE0Uc",
+      ];
+      const addresses = [
+        "therese2011",
+        "john1993",
+        "jacky_okune",
+        "miouri2017",
+        "haylee2013",
+        "mollie.botsfo",
+        "skye_terr4",
+        "bernita.litt",
+        "lura1995",
+        "armani1983",
+      ];
+      const domain = ["gmail", "yahoo", "hotmail", "outlook", "fastmail"];
+      const ending = ["com", "co.uk", "com.au"];
+      const pass = [
+        "experthead",
+        "interestec",
+        "ortspoon",
+        "reallychel",
+        "simmson56",
+        "bookma",
+        "popularkiya7",
+        "eatingcake1994",
+        "heroanhart",
+        "edi_tesla89",
+        "liveltekah",
+        "blikimore",
+        "johnwick007",
+        "flamesbria2001",
+        "oranolio",
+        "spuffyffet",
+        "moodie",
+        "A",
+        "nadox",
+        "banddals",
+        "123",
+        "mommy123",
+        "1q2w3e4r5t6y",
+        "iloveyou",
+        "iloveneophyte",
+        "mustang",
+        "titty_v123",
+      ];
+      const authtype = ["SMS-based", "App-based"];
 
-          const pickToken = Math.floor(Math.random() * token.length);
-          const pickAddress = Math.floor(Math.random() * addresses.length);
-          const pickDomain = Math.floor(Math.random() * domain.length);
-          const pickEnding = Math.floor(Math.random() * ending.length);
-          const pickPass = Math.floor(Math.random() * pass.length);
+      const pickToken = Math.floor(Math.random() * token.length);
+      const pickAddress = Math.floor(Math.random() * addresses.length);
+      const pickDomain = Math.floor(Math.random() * domain.length);
+      const pickEnding = Math.floor(Math.random() * ending.length);
+      const pickPass = Math.floor(Math.random() * pass.length);
 
-          const moneyz = Math.floor(Math.random() * 100000)
-            .toString()
-            .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-          const currency = [
-            "AUD",
-            "SGD",
-            "USD",
-            "IDR",
-            "CHF",
-            "EUR",
-            "CNY",
-            "GEL",
-            "JPY",
-            "PLN",
-            "NOK"
-          ];
-          const pickCur = currency[Math.floor(Math.random() * currency.length)];
+      const moneyz = Math.floor(Math.random() * 100000)
+        .toString()
+        .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+      const currency = [
+        "AUD",
+        "SGD",
+        "USD",
+        "IDR",
+        "CHF",
+        "EUR",
+        "CNY",
+        "GEL",
+        "JPY",
+        "PLN",
+        "NOK"
+      ];
+      const pickCur = currency[Math.floor(Math.random() * currency.length)];
       // #endregion Variables
 
       await interaction.reply(msg[platform] + host[platform] + "**");
@@ -912,16 +910,16 @@ module.exports = {
 
           await sentMessage.edit('\u200B')
         });
-        const embed = new MessageEmbed()
+      const embed = new MessageEmbed()
         .setColor("#4CAF50")
         .setTitle("Hack successful! - Summary")
         .addFields(
-          { name: "Ran as", value: user[platform], inline: true },
-          { name: "Ran on", value: machine[platform], inline: true },
-          { name: "Ran under", value: host[platform], inline: true },
-          { name: "Terminal Emulator", value: emu[platform], inline: true },
-          { name: "Terminal Shell", value: shell[platform], inline: true },
-          { name: "Script Language", value: language[randomVR], inline: true },
+          { name: "Ran as", value: user[platform] || 'user', inline: true },
+          { name: "Ran on", value: machine[platform] || 'machine', inline: true },
+          { name: "Ran under", value: host[platform] || 'host', inline: true },
+          { name: "Terminal Emulator", value: emu[platform] || 'terminal', inline: true },
+          { name: "Terminal Shell", value: shell[platform] || 'shell', inline: true },
+          { name: "Script Language", value: language[randomVR] || 'language', inline: true },
           {
             name: "Malware Sent",
             value: `\`${attack[pickAttack]}:${os[randomVR]}/${name[randomName]}.${variant[pickVariant]}${suffix[pickSuffix]}\``,
@@ -930,13 +928,13 @@ module.exports = {
             name: "File Sent",
             value: `\`${name[randomName]}${type[randomVR]}\``,
           },
-          { name: "IP address", value: ip[randomIP], inline: true },
+          { name: "IP address", value: ip[randomIP] || 'Failed to catch IP address.', inline: true },
           {
             name: "Position (Lat, Long)",
-            value: geo[randomIP],
+            value: geo[randomIP] || 'Failed to catch location.',
             inline: true,
           },
-          { name: "Discord Token", value: "`" + token[pickToken] + "`" },
+          { name: "Discord Token", value: "`" + token[pickToken] + "`" || 'Failed to catch token.' },
           {
             name: "Email",
             value:
@@ -949,14 +947,14 @@ module.exports = {
               "`",
             inline: true
           },
-          { name: "Password", value: "`" + pass[pickDomain] + "`", inline: true },
+          { name: "Password", value: "`" + pass[pickDomain] + "`" || 'Failed to catch login password.', inline: true },
           {
             name: "2-FA Type",
-            value: authtype[Math.floor(Math.random() * authtype.length)],
+            value: authtype[Math.floor(Math.random() * authtype.length)] || '2-FA is disabled.',
             inline: true,
           },
-          { name: "Latest DM", value: "`" + dm[pickDM] + "`" },
-          { name: "DM author", value: "`" + author[pickDM] + "`" },
+          { name: "Latest DM", value: "`" + dm[pickDM] + "`" || 'Failed to fetch DMs.' },
+          { name: "DM author", value: "`" + author[pickDM] + "`" || 'Failed to fetch DMs.' },
           {
             name: "Data Sold",
             value: `${Math.floor(Math.random() * 947)} ${unit[Math.floor(Math.random() * unit.length)]
@@ -966,8 +964,8 @@ module.exports = {
           { name: "Sold For", value: `${moneyz.toString()} ${pickCur}`, inline: true }
         );
 
-        await wait(2500)
-        interaction.editReply({ content: 'Hack completed.', embeds: [embed] })
+      await wait(2500)
+      interaction.editReply({ content: 'Hack completed.', embeds: [embed] })
     }
   },
 };
