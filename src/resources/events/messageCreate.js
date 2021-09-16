@@ -9,11 +9,12 @@ const owner = require('../json/owner.json')
 var date_time = new Date();
 let hour = ("0" + date_time.getHours()).slice(-2);
 let minute = ("0" + date_time.getMinutes()).slice(-2);
+const wait = require('util').promisify(setTimeout);
 // #endregion Import and declare
 
-module.exports = {
+module.exports  = {
     name: 'messageCreate',
-    execute(message) {
+    execute (message) {
         // #region Embeds
         const belleEmbed = new MessageEmbed()
 	        .setColor('#D80070')
@@ -75,6 +76,13 @@ module.exports = {
         } else if(message.content === 'OwO') {
             message.reply('What\'s this?')
             console.log(`┌─ `.white + `[${hour}:${minute}]`.brightGreen.bold + ` ` + `(${__dirname}/botphyte.js)`.brightYellow.bold + ` ` + `(LOG)\n`.bold + `└─`.white + ` Replied to message "${message.content}"\n`);
+        } else if(message.content === '@random') {
+		    message.guild.members.fetch();
+
+            message.channel.send('<a:loading:887182267254997002> Botphyte is thinking...').then(async msg => {
+                                                                                                await wait(2500),
+                                                                                                await msg.edit(`I choose you, ${message.guild.members.cache.random(1)[0]}!`)})
+        
         }
     }
 }
