@@ -332,7 +332,7 @@ module.exports = {
           );
           await wait(5000); 
 
-          await sentMessage.delete
+          await sentMessage.edit('\u200B')
         });
         await wait(2500)
 
@@ -663,12 +663,12 @@ module.exports = {
           const type = [
             ".apk",
             ".com",
-            " ",
+            ".sh",
             ".ipa",
             ".AppImage",
             ".app",
             ".app",
-            " ",
+            ".sh",
             ".exe",
             ".com",
             ".exe",
@@ -910,7 +910,7 @@ module.exports = {
           );
           await wait(5000);
 
-          await sentMessage.delete
+          await sentMessage.edit('\u200B')
         });
         const embed = new MessageEmbed()
         .setColor("#4CAF50")
