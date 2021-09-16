@@ -25,7 +25,7 @@
   "scripts": {
     "botphyte": "node src/botphyte.js",
     "deploy": "node src/resources/deploy.js",
-    "deploydev": "node src/resources/deploy_dev.js"
+    "deploydev": "node src/resources/misc/deploy_dev.js"
   },
   "repository": {
     "type": "git",

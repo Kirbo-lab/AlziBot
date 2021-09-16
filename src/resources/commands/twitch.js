@@ -5,8 +5,8 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { MessageEmbed } = require('discord.js');
 const config = require('../config.json');
-const api = require('../json/api.json');
-const socials = require('../json/socials.json');
+const api = require('../misc/json/api.json');
+const socials = require('../misc/json/socials.json');
 const fetch = require('node-fetch')
 const TwitchURL = `${api.twitch.url}${socials.links.twitch}`
 

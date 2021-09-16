@@ -1,7 +1,7 @@
 const fs = require('fs');
 const { REST } = require('@discordjs/rest');
 const { Routes } = require('discord-api-types/v9');
-const config = require('./config.json');
+const config = require('../config.json');
 const colors = require('colors');
 var date_time = new Date();
 let hour = ("0" + date_time.getHours()).slice(-2);
