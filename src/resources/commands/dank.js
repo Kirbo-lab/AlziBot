@@ -28,9 +28,6 @@ module.exports = {
                 .setDescription(`You are ${rating}% dank. :sunglasses:`)
                 await interaction.reply({ embeds: [embed] })
             }
-
-            // Reply to interaction.
-            await interaction.reply({ embeds: [embed] })
         } else {
             let rating = Math.floor(Math.random() * 100)
 
