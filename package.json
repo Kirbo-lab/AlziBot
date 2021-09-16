@@ -20,7 +20,7 @@
   },
   "name": "botphyte",
   "description": "Official bot for Neophyte's server!",
-  "version": "1.0.2",
+  "version": "1.6.3",
   "main": "src/botphyte.js",
   "scripts": {
     "botphyte": "node src/botphyte.js",
