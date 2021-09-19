@@ -8,7 +8,7 @@ const pirate = require('pirate-speak');
 
 module.exports = {
 	data: new SlashCommandBuilder()
-		.setName('owo')
+		.setName('pirate')
 		.setDescription('Piratifies your message.')
 		.addStringOption(option => option.setName('message')
 										 .setDescription('Enter a message to translate to Pirate Speak!')
