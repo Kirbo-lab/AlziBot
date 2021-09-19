@@ -3,6 +3,7 @@
 // Created with <3 by Pix3l_.
 
 const { SlashCommandBuilder } = require('@discordjs/builders');
+const config = require('../../config.json');
 const fetch = require('node-fetch');
 
 module.exports = {
@@ -17,6 +18,8 @@ module.exports = {
 		if(interaction.options.getUser('user') === interaction.user) {
 			// Reply to interaction.
 			await interaction.reply({ content: 'You can\'t mock yourself!', ephemeral: true })
+		} else if(interaction.options.getUser('user')?.bot === true) {
+			await interaction.reply({ content: 'You can\'t mock bots!', ephemeral: true })
 		} else {
 			const webhook = await interaction.channel.createWebhook(`${interaction.options.getUser('user')?.username}`, { avatar: `${interaction.options.getUser('user')?.avatarURL()}` })
 
