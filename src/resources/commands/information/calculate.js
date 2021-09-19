@@ -12,7 +12,7 @@ module.exports = {
 		.setName('calculate')
 		.setDescription(`Calculates a simple equation.`)
 		.addStringOption(option => option.setName('equation')
-			.setDescription('Enter an equation')
+			.setDescription('Enter an equation to calulate!')
 			.setRequired(true)),
 	async execute(interaction) {
 
