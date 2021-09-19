@@ -11,12 +11,14 @@
     "discord-api-types": "^0.22.0",
     "discord-reply": "^0.1.2",
     "discord.js": "^13.1.0",
+    "flip-text": "^1.2.0",
     "intl": "^1.2.5",
     "mathjs": "^9.4.4",
     "moment": "^2.29.1",
     "ms": "^2.1.3",
     "node-twitch": "^0.4.5",
-    "pirate-speak": "^1.0.1"
+    "pirate-speak": "^1.0.1",
+    "shoukaku": "^2.0.4"
   },
   "name": "botphyte",
   "description": "Official bot for Neophyte's server!",
@@ -25,7 +27,7 @@
   "scripts": {
     "botphyte": "node src/botphyte.js",
     "deploy": "node src/resources/deploy.js",
-    "deploydev": "node src/resources/deploy_dev.js"
+    "deploydev": "node src/resources/misc/deploy_dev.js"
   },
   "repository": {
     "type": "git",
