@@ -23,5 +23,9 @@
             "emojiSeven": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/twitter/282/man-tipping-hand-medium-light-skin-tone_1f481-1f3fc-200d-2642-fe0f.png",
             "emojiEight": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/twitter/282/film-frames_1f39e-fe0f.png"
         }
+    },
+    "misc": {
+        "guildID": "747412985936478358",
+        "devGuildID": "875376157229449217"
     }
 }

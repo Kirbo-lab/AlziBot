@@ -6,7 +6,11 @@
 const { MessageEmbed, MessageButton, MessageActionRow } = require('discord.js')
 const colors = require('colors');
 const owner = require('../../misc/json/owner.json')
+<<<<<<< Updated upstream:src/resources/events/guild/messageCreate.js
 var date_time = new Date();
+=======
+let date_time = new Date();
+>>>>>>> Stashed changes:src/resources/events/messageCreate.js
 let hour = ("0" + date_time.getHours()).slice(-2);
 let minute = ("0" + date_time.getMinutes()).slice(-2);
 const wait = require('util').promisify(setTimeout);
@@ -51,31 +55,31 @@ module.exports  = {
 
         if(message.content === 'pixel makes the best bots') {
             message.reply({ content: 'Like the bot? Consider starring the bot on GitHub or supporting me on Patreon!', components: [goodBot] });
-            console.log(`┌─ `.white + `[${hour}:${minute}]`.brightGreen.bold + ` ` + `(${__dirname}/botphyte.js)`.brightYellow.bold + ` ` + `(LOG)\n`.bold + `└─`.white + ` Replied to message "${message.content}"\n`);
+            console.log(`┌─ `.white + `[${hour}:${minute}]`.brightGreen.bold + ` ` + `(${__filename})`.brightYellow.bold + ` ` + `(LOG)\n`.bold + `└─`.white + ` Replied to message "${message.content}"\n`);
         } else if(message.content === 'pixels bots are so good') {
             message.reply({ content: 'Like the bot? Consider starring the bot on GitHub or supporting me on Patreon!', components: [goodBot] });
-            console.log(`┌─ `.white + `[${hour}:${minute}]`.brightGreen.bold + ` ` + `(${__dirname}/botphyte.js)`.brightYellow.bold + ` ` + `(LOG)\n`.bold + `└─`.white + ` Replied to message "${message.content}"\n`);
+            console.log(`┌─ `.white + `[${hour}:${minute}]`.brightGreen.bold + ` ` + `(${__filename})`.brightYellow.bold + ` ` + `(LOG)\n`.bold + `└─`.white + ` Replied to message "${message.content}"\n`);
         } else if(message.content === 'pixel makes bad bots') {
             message.reply({ content: 'Is there something wrong? Help me improve over at my GitHub!', components: [badBot] });
-            console.log(`┌─ `.white + `[${hour}:${minute}]`.brightGreen.bold + ` ` + `(${__dirname}/botphyte.js)`.brightYellow.bold + ` ` + `(LOG)\n`.bold + `└─`.white + ` Replied to message "${message.content}"\n`);
+            console.log(`┌─ `.white + `[${hour}:${minute}]`.brightGreen.bold + ` ` + `(${__filename})`.brightYellow.bold + ` ` + `(LOG)\n`.bold + `└─`.white + ` Replied to message "${message.content}"\n`);
         } else if(message.content === 'pixel makes shit bots') {
             message.reply({ content: 'Is there something wrong? Help me improve over at my GitHub!', components: [badBot] });
-            console.log(`┌─ `.white + `[${hour}:${minute}]`.brightGreen.bold + ` ` + `(${__dirname}/botphyte.js)`.brightYellow.bold + ` ` + `(LOG)\n`.bold + `└─`.white + ` Replied to message "${message.content}"\n`);
+            console.log(`┌─ `.white + `[${hour}:${minute}]`.brightGreen.bold + ` ` + `(${__filename})`.brightYellow.bold + ` ` + `(LOG)\n`.bold + `└─`.white + ` Replied to message "${message.content}"\n`);
         } else if(message.content === 'pixels bots are trash') {
             message.reply({ content: 'Is there something wrong? Help me improve over at my GitHub!', components: [badBot] });
-            console.log(`┌─ `.white + `[${hour}:${minute}]`.brightGreen.bold + ` ` + `(${__dirname}/botphyte.js)`.brightYellow.bold + ` ` + `(LOG)\n`.bold + `└─`.white + ` Replied to message "${message.content}"\n`);
+            console.log(`┌─ `.white + `[${hour}:${minute}]`.brightGreen.bold + ` ` + `(${__filename})`.brightYellow.bold + ` ` + `(LOG)\n`.bold + `└─`.white + ` Replied to message "${message.content}"\n`);
         } else if(message.content === 'pixels bots are the worst') {
             message.reply({ content: 'Is there something wrong? Help me improve over at my GitHub!', components: [badBot] });
-            console.log(`┌─ `.white + `[${hour}:${minute}]`.brightGreen.bold + ` ` + `(${__dirname}/botphyte.js)`.brightYellow.bold + ` ` + `(LOG)\n`.bold + `└─`.white + ` Replied to message "${message.content}"\n`);
+            console.log(`┌─ `.white + `[${hour}:${minute}]`.brightGreen.bold + ` ` + `(${__filename})`.brightYellow.bold + ` ` + `(LOG)\n`.bold + `└─`.white + ` Replied to message "${message.content}"\n`);
         } else if(message.content === 'oh damn, belle delphine, ok i see') {
             message.reply({ embeds: [belleEmbed] });
-            console.log(`┌─ `.white + `[${hour}:${minute}]`.brightGreen.bold + ` ` + `(${__dirname}/botphyte.js)`.brightYellow.bold + ` ` + `(LOG)\n`.bold + `└─`.white + ` Replied to message "${message.content}"\n`);
+            console.log(`┌─ `.white + `[${hour}:${minute}]`.brightGreen.bold + ` ` + `(${__filename})`.brightYellow.bold + ` ` + `(LOG)\n`.bold + `└─`.white + ` Replied to message "${message.content}"\n`);
         } else if(message.content === 'hi botphyte') {
             message.reply('Hey there!')
-            console.log(`┌─ `.white + `[${hour}:${minute}]`.brightGreen.bold + ` ` + `(${__dirname}/botphyte.js)`.brightYellow.bold + ` ` + `(LOG)\n`.bold + `└─`.white + ` Replied to message "${message.content}"\n`);
+            console.log(`┌─ `.white + `[${hour}:${minute}]`.brightGreen.bold + ` ` + `(${__filename})`.brightYellow.bold + ` ` + `(LOG)\n`.bold + `└─`.white + ` Replied to message "${message.content}"\n`);
         } else if(message.content === 'OwO') {
             message.reply('What\'s this?')
-            console.log(`┌─ `.white + `[${hour}:${minute}]`.brightGreen.bold + ` ` + `(${__dirname}/botphyte.js)`.brightYellow.bold + ` ` + `(LOG)\n`.bold + `└─`.white + ` Replied to message "${message.content}"\n`);
+            console.log(`┌─ `.white + `[${hour}:${minute}]`.brightGreen.bold + ` ` + `(${__filename})`.brightYellow.bold + ` ` + `(LOG)\n`.bold + `└─`.white + ` Replied to message "${message.content}"\n`);
         } else if(message.content === '@random') {
 		    message.guild.members.fetch();
 

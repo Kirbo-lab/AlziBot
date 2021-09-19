@@ -14,7 +14,7 @@ module.exports = {
 	once: true,
 	execute(Botphyte) {
 		Botphyte.user.setPresence({ activities: [{ name: 'over Neophyte\'s server | /botphyte', type: 'WATCHING' }], status: 'online' });
-		console.log('┌─ '.white + `[${hour}:${minute}]`.brightGreen.bold + ' ' + `(${__dirname}/botphyte.js)`.brightYellow.bold + ' ' + '(LOG)\n'.bold + '└─'.white + ' Changed status.\n');
+		console.log('┌─ '.white + `[${hour}:${minute}]`.brightGreen.bold + ' ' + `(${__filename})`.brightYellow.bold + ' ' + '(LOG)\n'.bold + '└─'.white + ' Changed status.\n');
 		// #region Set status
 		const statuses = [
 			{ activities: [{ name: 'ttv_neophyte | /botphyte', type: 'WATCHING' }], status: 'online' },
@@ -31,12 +31,12 @@ module.exports = {
 				i = 0;
 			}
 			Botphyte.user.setPresence(status);
-			console.log('┌─ '.white + `[${hour}:${minute}]`.brightGreen.bold + ' ' + `(${__dirname}/botphyte.js)`.brightYellow.bold + ' ' + '(LOG)\n'.bold + '└─'.white + ' Changed status.\n');
+			console.log('┌─ '.white + `[${hour}:${minute}]`.brightGreen.bold + ' ' + `(${__filename})`.brightYellow.bold + ' ' + '(LOG)\n'.bold + '└─'.white + ' Changed status.\n');
 			i++;
 		}, 43200000);
 		// #endregion Set status
 
-		console.log('┌─ '.white + `[${hour}:${minute}]`.brightGreen.bold + ' ' + `(${__dirname}/botphyte.js)`.brightYellow.bold + ' ' + '(LOG)\n'.bold + '└─'.white + ` Logged in as ${Botphyte.user.tag}.\n`);
-		console.log('┌─ '.white + `[${hour}:${minute}]`.brightGreen.bold + ' ' + `(${__dirname}/botphyte.js)`.brightYellow.bold + ' ' + '(LOG)\n'.bold + '└─'.white + ' Ready!\n');
+		console.log('┌─ '.white + `[${hour}:${minute}]`.brightGreen.bold + ' ' + `(${__filename})`.brightYellow.bold + ' ' + '(LOG)\n'.bold + '└─'.white + ` Logged in as ${Botphyte.user.tag}.\n`);
+		console.log('┌─ '.white + `[${hour}:${minute}]`.brightGreen.bold + ' ' + `(${__filename})`.brightYellow.bold + ' ' + '(LOG)\n'.bold + '└─'.white + ' Ready!\n');
 	},
 };
