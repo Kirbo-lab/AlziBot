@@ -6,11 +6,7 @@
 const { MessageEmbed, MessageButton, MessageActionRow } = require('discord.js')
 const colors = require('colors');
 const owner = require('../../misc/json/owner.json')
-<<<<<<< Updated upstream:src/resources/events/guild/messageCreate.js
-var date_time = new Date();
-=======
 let date_time = new Date();
->>>>>>> Stashed changes:src/resources/events/messageCreate.js
 let hour = ("0" + date_time.getHours()).slice(-2);
 let minute = ("0" + date_time.getMinutes()).slice(-2);
 const wait = require('util').promisify(setTimeout);

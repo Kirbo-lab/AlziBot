@@ -8,7 +8,7 @@ const colors = require('colors');
 const user = os.userInfo().username;
 const host = os.hostname();
 let date_time = new Date();
-let hour = ("0" + date_time.getHours()).slice(-2); 
+let hour = ("0" + date_time.getHours()).slice(-2);
 let minute = ("0" + date_time.getMinutes()).slice(-2);
 
 console.log(`// Running as` + ` ${user}`.white.bold + ` on` + ` ${host}`.white.bold + ` at` + ` ${__dirname}`.white.bold + `.\n`)
@@ -19,12 +19,7 @@ const { Client, Collection, Intents } = require('discord.js');
 const config = require('./resources/config.json');
 
 const Botphyte = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MEMBERS, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.GUILD_MESSAGE_REACTIONS, Intents.FLAGS.GUILD_VOICE_STATES, Intents.FLAGS.DIRECT_MESSAGES] });
-<<<<<<< Updated upstream
-console.log(`┌─ `.white + `[${hour}:${minute}]`.brightGreen.bold + ` ` + `(${__dirname}/botphyte.js)`.brightYellow.bold + ` ` + `(LOG)\n`.bold + `└─`.white + ` Created a new 'Client' object named 'Botphyte' with intents 'Intents.FLAGS.GUILDS', 'Intents.FLAGS.GUILD_MEMBERS', 'Intents.FLAGS.GUILD_MESSAGES', 'Intents.FLAGS.GUILD_MESSAGE_REACTIONS', 'Intents.FLAGS.GUILD_VOICE_STATES', and 'Intents.FLAGS.DIRECT_MESSAGES'.\n`);
-=======
-console.log(`┌─ `.white + `[${hour}:${minute}]`.brightGreen.bold + ` ` + `(${__filename})`.brightYellow.bold + ` ` + `(LOG)\n`.bold + `└─`.white + ` Created a new 'Client' object named 'Botphyte' with intents 'Intents.FLAGS.GUILDS', 'Intents.FLAGS.GUILD_MEMBERS', 'Intents.FLAGS.GUILD_MESSAGES', 'Intents.FLAGS.GUILD_MESSAGE_REACTIONS', 'Intents.FLAGS.GUILD_VOICE_STATES', and 'Intents.FLAGS.DIRECT_MESSAGES'.\n`);
->>>>>>> Stashed changes
-// #endregion Create new Discord instance
+
 
 // #region Handler
 const eventFolders = readdirSync(`./src/resources/events`);
@@ -36,17 +31,10 @@ for (const folder of eventFolders) {
 		const event = require(`./resources/events/${folder}/${file}`);
 		if (event.once) {
 			Botphyte.once(event.name, (...args) => event.execute(...args));
-<<<<<<< Updated upstream
-			console.log(`┌─ `.white + `[${hour}:${minute}]`.brightGreen.bold + ` ` + `(${__dirname}/botphyte.js)`.brightYellow.bold + ` ` + `(LOG)\n`.bold + `└─`.white + ` Successfully loaded ${event.name}!\n`);
-		} else {
-			Botphyte.on(event.name, (...args) => event.execute(...args))
-			console.log(`┌─ `.white + `[${hour}:${minute}]`.brightGreen.bold + ` ` + `(${__dirname}/botphyte.js)`.brightYellow.bold + ` ` + `(LOG)\n`.bold + `└─`.white + ` Successfully loaded ${event.name}!\n`);
-=======
 			console.log(`┌─ `.white + `[${hour}:${minute}]`.brightGreen.bold + ` ` + `(${__filename})`.brightYellow.bold + ` ` + `(LOG)\n`.bold + `└─`.white + ` Successfully loaded '${folder} > ${file}'!\n`);
 		} else {
 			Botphyte.on(event.name, (...args) => event.execute(...args))
-			console.log(`┌─ `.white + `[${hour}:${minute}]`.brightGreen.bold + ` ` + `(${__filename})`.brightYellow.bold + ` ` + `(LOG)\n`.bold + `└─`.white + ` Successfully loaded ${event.name}!\n`);
->>>>>>> Stashed changes
+			console.log(`┌─ `.white + `[${hour}:${minute}]`.brightGreen.bold + ` ` + `(${__filename})`.brightYellow.bold + ` ` + `(LOG)\n`.bold + `└─`.white + ` Successfully loaded '${folder} > ${file}!\n`);
 		}
 	}
 }
@@ -60,11 +48,7 @@ for (const folder of commandFolders) {
 	for (const file of commandFiles) {
 		const command = require(`./resources/commands/${folder}/${file}`);
 		Botphyte.commands.set(command.data.name, command);
-<<<<<<< Updated upstream
-		console.log(`┌─ `.white + `[${hour}:${minute}]`.brightGreen.bold + ` ` + `(${__dirname}/botphyte.js)`.brightYellow.bold + ` ` + `(LOG)\n`.bold + `└─`.white + `Successfully loaded /${command.data.name}!\n`);
-=======
 		console.log(`┌─ `.white + `[${hour}:${minute}]`.brightGreen.bold + ` ` + `(${__filename})`.brightYellow.bold + ` ` + `(LOG)\n`.bold + `└─`.white + ` Successfully loaded '${folder} > ${file}'!\n`);
->>>>>>> Stashed changes
 	}
 }
 
@@ -77,15 +61,9 @@ Botphyte.on('interactionCreate', async interaction => {
     
 	try {
     	await command.execute(interaction, Botphyte);
-<<<<<<< Updated upstream
-    	console.log(`┌─ `.white + `[${hour}:${minute}]`.brightGreen.bold + ` ` + `(${__dirname}/botphyte.js)`.brightYellow.bold + ` ` + `(LOG)\n`.bold + `└─`.white + ` "${interaction.user.tag} (${interaction.user.id})" at "#${interaction.channel.name} (${interaction.channel.id})" ran "/${command.data.name}" that triggered an interaction.\n`);
-	} catch (error) {
-		console.log(`┌─ `.white + `[${hour}:${minute}]`.brightGreen.bold + ` ` + `(${__dirname}/botphyte.js)`.brightYellow.bold + ` ` + `(LOG)\n`.bold + `└─`.white + ` "${interaction.user.tag} (${interaction.user.id})" at "#${interaction.channel.name} (${interaction.channel.id})" ran "/${command.data.name}" that tried to trigger an interaction, but failed.\n${error}\n`);
-=======
     	console.log(`┌─ `.white + `[${hour}:${minute}]`.brightGreen.bold + ` ` + `(${__filename})`.brightYellow.bold + ` ` + `(LOG)`.bold + ` (/${command.data.name})\n` + `└─`.white + ` "${interaction.user.tag}" (${interaction.user.id}) triggered an interaction at "#${interaction.channel.name}" (${interaction.channel.id}), on "${interaction.guild.name}" (${interaction.guild.id}). \n`);
 	} catch (error) {
 		console.log(`┌─ `.white + `[${hour}:${minute}]`.brightGreen.bold + ` ` + `(${__filename})`.brightYellow.bold + ` ` + `(ERROR)`.bold + ` (/${command.data.name})\n` + `└─`.white + ` "${interaction.user.tag}" (${interaction.user.id}) tried to trigger an interaction at "#${interaction.channel.name}" (${interaction.channel.id}), on "${interaction.guild.name}" (${interaction.guild.id}), but returned an error.\n${error}\n`);
->>>>>>> Stashed changes
     	return interaction.reply({ content: 'There was an error while executing this command!', ephemeral: true });
 	}
 });
