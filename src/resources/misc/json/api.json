@@ -1,9 +1,0 @@
-{
-    "twitch": {
-        "clientID": "gjtlada5aj5lvj8puzzqfs0t5u46na",
-        "clientSecret": "itohp1soqrrgpnyd7bjas5vmcoeypk",
-        "token": "vwuu1fucjan9vjncszsly8ilj0wh1d",
-        "url": "https://api.twitch.tv/helix/streams/"
-    },
-    "covid": "https://disease.sh/v3/covid-19/"
-}
