@@ -1,10 +1,11 @@
 
-// © 2021 Pix3l_. All rights reserved.
-// Created with <3 by Pix3l_.
+
+// Made with <3 by Pix3l_.
 
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { MessageEmbed, Permissions } = require('discord.js');
-const config = require('../../config.json');
+const bot = require('../../misc/configuration/bot.js');
+const look = require('../../misc/configuration/bot.js')
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -15,19 +16,19 @@ module.exports = {
         if (interaction.member.permissions.has(Permissions.FLAGS.MANAGE_MESSAGES)) {
             const amount = interaction.options.getNumber('amount');
 
-            if(amount > 2000) {
-                return interaction.reply({ content: `You can only purge up to 2000 messages!`, ephemeral: true})
-            } else if(amount < 1) {
-                return interaction.reply({ content: `Enter a number between 1 and 2000!`, ephemeral: true})
+            if (amount > 2000) {
+                return interaction.reply({ content: `You can only purge up to 2000 messages!`, ephemeral: true })
+            } else if (amount < 1) {
+                return interaction.reply({ content: `Enter a number between 1 and 2000!`, ephemeral: true })
             } else {
                 const embed = new MessageEmbed()
-                    .setColor(config.embed.colour)
+                    .setColor(bot.embed.defaultColour)
                     .setTitle('Success!')
                     .setDescription(`I have purged **${amount}** messages!`)
 
                 interaction.channel.bulkDelete(amount, true).then(interaction.reply({ embeds: [embed] })).catch(err => {
                     console.log(`┌─ `.white + `[${hour}:${minute}]`.brightGreen.bold + ` ` + `(${__dirname}/botphyte.js)`.brightYellow.bold + ` ` + `(ERROR)\n`.bold + `└─`.white + ` ${err}\n`);
-                    return interaction.reply({ content: `There was an error while purging messages!`, ephemeral: true})
+                    return interaction.reply({ content: `There was an error while purging messages!`, ephemeral: true })
                 })
             }
         } else {

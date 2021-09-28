@@ -1,5 +1,4 @@
-// © 2021 Pix3l_. All rights reserved.
-// Created with <3 by Pix3l_.
+// Made with <3 by Pix3l_.
 
 const { SlashCommandBuilder } = require("@discordjs/builders");
 const { MessageAttachment, MessageEmbed } = require("discord.js");
@@ -240,7 +239,6 @@ module.exports = {
         "PLN",
         "NOK"
       ];
-      const pickCur = currency[Math.floor(Math.random() * currency.length)];
 
       // #endregion Variables
 

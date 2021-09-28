@@ -1,5 +1,7 @@
 node_modules
-config.json
 .eslintrc.json
 *.code-workspace
-src/resources/json/api.json
+src/resources/misc/json/
+src/resources/misc/configuration/bot.js
+src/resources/misc/configuration/socials.js
+src/resources/misc/configuration/guild.js

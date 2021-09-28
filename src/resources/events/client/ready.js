@@ -1,6 +1,6 @@
 
-// © 2021 Pix3l_. All rights reserved.
-// Created with <3 by Pix3l_.
+
+// Made with <3 by Pix3l_.
 
 // #region Import and declare
 const colors = require('colors');

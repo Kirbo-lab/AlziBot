@@ -1,33 +1,24 @@
-
-// © 2021 Pix3l_. All rights reserved.
-// Created with <3 by Pix3l_.
+// Made with <3 by Pix3l_.
 
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { MessageEmbed } = require('discord.js');
-const config = require('../../config.json');
-const misc = require('../../misc/json/misc.json');
+const bot = require('../../misc/configuration/bot.js');
 
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('coin')
         .setDescription('Flips a coin.'),
     async execute(interaction) {
-        // Define sides.
-        const side = ['heads', 'tails']
-        // Choose a side.
-        const chosen = side[Math.floor(Math.random() * side.length)]
-        // Define images.
-        const coin = { heads: misc.coins.heads, tails: misc.coins.tails }
+        const side = ['heads', 'tails'];
+        const chosen = side[Math.floor(Math.random() * side.length)];
+        const coin = { heads: bot.misc.coins.heads, tails: bot.misc.coins.tails };
 
-        // #region Embeds
         const embed = new MessageEmbed()
-            .setColor(config.embed.colour)
+            .setColor(bot.embed.defaultColour)
             .setTitle('Coin Flip')
             .setThumbnail(coin[chosen])
-            .setDescription(`It landed on **${chosen}**.`)
-        // #endregion Embeds
+            .setDescription(`It landed on **${chosen}**.`);
 
-        // Reply to interaction.
-        await interaction.reply({ embeds: [embed] })
+        await interaction.reply({ embeds: [embed] });
     }
 }

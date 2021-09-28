@@ -1,37 +1,27 @@
-
-// © 2021 Pix3l_. All rights reserved.
-// Created with <3 by Pix3l_.
+// Made with <3 by Pix3l_.
 
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const fetch = require('node-fetch');
-const rotate = require('flip-text');
+const flip = require('flip-text');
 
 module.exports = {
-    data: new SlashCommandBuilder()
-        .setName('flip')
-        .setDescription(`Flips your message upside down.`)
+	data: new SlashCommandBuilder()
+		.setName('flip')
+		.setDescription(`Flips your message upside down.`)
 		.addStringOption(option => option.setName('message')
-										 .setDescription('Enter a message to flip!')
-										 .setRequired(true)),
-    async execute(interaction) {
-		// #region Webhook processing.
-		// Create a new webhook.
-		const webhook = await interaction.channel.createWebhook(`${interaction.user.username}`, { avatar: `${interaction.user.avatarURL()}` })
+			.setDescription('Enter a message to flip!')
+			.setRequired(true)),
+	async execute(interaction) {
+		const webhook = await interaction.channel.createWebhook(`${interaction.member.displayName}`, { avatar: `${interaction.user.avatarURL()}` });
 
-		const webhookURL = webhook.url;
-		
-		// Send a webhook message.
-		await fetch(webhookURL, {
+		await fetch(webhook.url, {
 			headers: { 'Content-Type': 'application/json' },
 			method: 'POST',
-			body: JSON.stringify({ content: rotate(interaction.options.getString('message')) })
+			body: JSON.stringify({ content: flip(interaction.options.getString('message')) })
 		});
 
-		// Delete the webhook.
-		await webhook.delete()
-		// #endregion Webhook processing.
+		await webhook.delete();
 
-		// Reply to interaction.
-		await interaction.reply({ content: 'Webhook sent!', ephemeral: true })
-    }
+		await interaction.reply({ content: 'Webhook sent!', ephemeral: true });
+	}
 }

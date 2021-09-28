@@ -1,11 +1,9 @@
-
-// © 2021 Pix3l_. All rights reserved.
-// Created with <3 by Pix3l_.
+// Made with <3 by Pix3l_.
 
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { MessageEmbed } = require('discord.js');
-const fetch = require('node-fetch')
-const config = require('../../config.json');
+const fetch = require('node-fetch');
+const bot = require('../../misc/configuration/bot.js');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -13,30 +11,21 @@ module.exports = {
         .setDescription('Bullies someone.')
         .addUserOption(option => option.setName('victim').setDescription('Enter a user to bully!').setRequired(true)),
     async execute(interaction) {
-        // Define APIs.
-        const APIs = ['https://waifu.pics/api/sfw/bully', 'https://waifu.pics/api/sfw/bonk', 'https://waifu.pics/api/sfw/yeet']
-        // Define suffixes
-        const suffixes = ['Hahaha!', '>:3', 'Deserves it.']
-        const otherstuff = ['bullies', 'beats', 'bonks', 'yeets']
-        // Pick an API.
-        const API = APIs[Math.floor(Math.random() * APIs.length)]
-        // Fetch from API.
+        const suffixes = ['Hahaha!', '>:3', 'Deserves it.'];
+        const otherstuff = ['bullies', 'beats', 'bonks', 'yeets'];
+        const API = bot.api.bully[Math.floor(Math.random() * bot.api.bully.length)];
         const { url } = await fetch(API).then(res => res.json());
 
-        if(interaction.options.getUser('victim') === interaction.user) {
-            // Reply to interaction.
-            await interaction.reply({ content: 'You can\'t bully yourself, and I don\'t want to bully you!', ephemeral: true })
+        if (interaction.options.getUser('victim') === interaction.user) {
+            await interaction.reply({ content: 'You can\'t bully yourself!', ephemeral: true });
         } else {
-            // #region Embeds
             const embed = new MessageEmbed()
-                .setColor(config.embed.colour)
-                .setAuthor(`${interaction.user.username} ${otherstuff[Math.floor(Math.random() * otherstuff.length)]} ${interaction.options.getUser('victim')?.username}!~ ${suffixes[Math.floor(Math.random() * suffixes.length)]}`, `${interaction.user.avatarURL()}`)
+                .setColor(bot.embed.defaultColour)
+                .setAuthor(`${interaction.user.username} ${otherstuff[Math.floor(Math.random() * otherstuff.length)]} ${interaction.options.getMember('victim')?.displayName}!~ ${suffixes[Math.floor(Math.random() * suffixes.length)]}`, `${interaction.user.avatarURL()}`)
                 .setImage(url)
-                .setFooter(`Fetched from ${API}.`)
-            // #endregion Embeds
+                .setFooter(`Fetched from ${API}.`);
 
-            // Reply to interaction.
-            await interaction.reply({ embeds: [embed] })
+            await interaction.reply({ embeds: [embed] });
         }
     }
 }

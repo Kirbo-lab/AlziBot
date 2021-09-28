@@ -1,11 +1,9 @@
-
-// © 2021 Pix3l_. All rights reserved.
-// Created with <3 by Pix3l_.
+// Made with <3 by Pix3l_.
 
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { MessageEmbed } = require('discord.js');
-const fetch = require('node-fetch')
-const config = require('../../config.json');
+const bot = require('../../misc/configuration/bot.js');
+const fetch = require('node-fetch');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -13,32 +11,23 @@ module.exports = {
         .setDescription('Kisses someone. o-o')
         .addUserOption(option => option.setName('target').setDescription('Enter a user to kiss!').setRequired(true)),
     async execute(interaction) {
-        // Define APIs.
-        const APIs = ['https://waifu.pics/api/sfw/kiss', 'https://nekos.life/api/v2/img/kiss']
-        // Define suffixes
-        const suffixes = [':flushed:', ':smirk:', ':eyes:', 'How cute!', 'Adorable!']
-        const otherstuff = ['kisses']
-        // Pick an API.
-        const API = APIs[Math.floor(Math.random() * APIs.length)]
-        // Fetch from API.
+        const suffixes = [':flushed:', ':smirk:', ':eyes:', 'How cute!', 'Adorable!'];
+        const otherstuff = ['kisses'];
+        const API = bot.api.kiss[Math.floor(Math.random() * bot.api.kiss.length)];
         const { url } = await fetch(API).then(res => res.json());
 
-        if(interaction.options.getUser('target') === interaction.user) {
-            // Reply to interaction.
-            await interaction.reply({ content: 'You can\'t kiss yourself, silly!' })
-        } else if(interaction.options.getUser('target')?.id === config.bot.clientID) {
-            interaction.reply({ content: `<@${interaction.user.id}>, I am underaged!`, ephemeral: true })
+        if (interaction.options.getUser('target') === interaction.user) {
+            await interaction.reply({ content: 'You can\'t kiss yourself, silly!' });
+        } else if (interaction.options.getUser('target')?.id === bot.client) {
+            interaction.reply({ content: `I am underaged!` });
         } else {
-            // #region Embeds
             const embed = new MessageEmbed()
-                .setColor(config.embed.colour)
-                .setAuthor(`${interaction.user.username} ${otherstuff[Math.floor(Math.random() * otherstuff.length)]} ${interaction.options.getUser('target')?.username}!~ ${suffixes[Math.floor(Math.random() * suffixes.length)]}`, `${interaction.user.avatarURL()}`)
+                .setColor(bot.embed.defaultColour)
+                .setAuthor(`${interaction.user.username} ${otherstuff[Math.floor(Math.random() * otherstuff.length)]} ${interaction.options.getMember('user')?.displayName}!~ ${suffixes[Math.floor(Math.random() * suffixes.length)]}`, `${interaction.user.avatarURL()}`)
                 .setImage(url)
-                .setFooter(`Fetched from ${API}.`)
-            // #endregion Embeds
+                .setFooter(`Fetched from ${API}.`);
 
-            // Reply to interaction.
-            await interaction.reply({ embeds: [embed] })
+            await interaction.reply({ embeds: [embed] });
         }
     }
 }

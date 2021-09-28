@@ -1,38 +1,40 @@
 
-// © 2021 Pix3l_. All rights reserved.
-// Created with <3 by Pix3l_.
+
+
 
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { MessageEmbed, Permissions } = require('discord.js');
-const config = require('../../config.json');
+const bot = require('../../misc/configuration/bot.js');
 
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('ban')
         .setDescription('Bans a user.')
-        .addUserOption(option => option.setName('user').setDescription('Enter a user to ban!').setRequired(true)),
-    async execute(interaction) {
-        if(interaction.member.permissions.has(Permissions.FLAGS.BAN_MEMBERS)) {
-            // Fetch user.
-            const user = interaction.options.getUser('user');
-            
-            if(user.id === interaction.user.id) {
-                interaction.reply({ content: 'You can\'t ban yourself, dummy!', ephemeral: true })
+        .addUserOption(option => option.setName('user').setDescription('Enter a user to ban!').setRequired(true))
+        .addStringOption(option => option.setName('reason').setDescription('Enter a the reason of ban!').setRequired(false)),
+    async execute(interaction, Botphyte) {
+        if (interaction.member.permissions.has(Permissions.FLAGS.BAN_MEMBERS)) {
+            const user = interaction.options.getMember('user');
+
+            if (user.id === interaction.user.id) {
+                interaction.reply({ content: 'You can\'t ban yourself, dummy!', ephemeral: true });
             } else {
-                // Ban user.
+                await Botphyte.users.cache.get(interaction.options.getMember('user')?.id)?.send(`You have been banned from \`${interaction.guild.name}\` by \`${interaction.user.username}#${interaction.user.discriminator}\` for \`${interaction.options.getString('reason')}\``)
+                await user.ban({ reason: interaction.options.getString('reason') })
+
                 interaction.guild.members.ban(user);
 
                 const embed = new MessageEmbed()
-                    .setColor(config.embed.colour)
+                    .setColor(bot.embed.defaultColour)
                     .setTitle('Success!')
-                    .setDescription(`I have successfully banned ${user}!`)
+                    .setDescription(`I have successfully banned \`${interaction.options.getMember('user')?.username}#${interaction.options.getMember('user')?.discriminator}\`!`);
 
-                // Reply to interaction.
-                interaction.reply({ embeds: [embed] })
+                interaction.reply({ embeds: [embed] });
             }
         } else {
-            // Reply to interaction.
-            interaction.reply({ content: `You do not have \`BAN_MEMBERS\` permissions required to run this command!`, ephemeral: true })
+            interaction.reply({
+                content: `You do not have \`BAN_MEMBERS\` permissions required to run this command!`, ephemeral: true
+            });
         }
     }
 }

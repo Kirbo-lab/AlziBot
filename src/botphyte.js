@@ -1,10 +1,10 @@
+// Made with <3 by Pix3l_.
+
 console.log('\n'.repeat(process.stdout.rows));
 
-// #region Import and declare
 const { readdirSync } = require('fs');
 const os = require('os');
 const colors = require('colors');
-
 const user = os.userInfo().username;
 const host = os.hostname();
 let date_time = new Date();
@@ -12,16 +12,11 @@ let hour = ("0" + date_time.getHours()).slice(-2);
 let minute = ("0" + date_time.getMinutes()).slice(-2);
 
 console.log(`// Running as` + ` ${user}`.white.bold + ` on` + ` ${host}`.white.bold + ` at` + ` ${__dirname}`.white.bold + `.\n`)
-// #endregion Import and declare
 
-// #region Create new Discord instance
 const { Client, Collection, Intents } = require('discord.js');
-const config = require('./resources/config.json');
-
+const bot = require('./resources/misc/configuration/bot.js');
 const Botphyte = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MEMBERS, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.GUILD_MESSAGE_REACTIONS, Intents.FLAGS.GUILD_VOICE_STATES, Intents.FLAGS.DIRECT_MESSAGES] });
 
-
-// #region Handler
 const eventFolders = readdirSync(`./src/resources/events`);
 
 for (const folder of eventFolders) {
@@ -57,17 +52,15 @@ Botphyte.on('interactionCreate', async interaction => {
 
 	const command = Botphyte.commands.get(interaction.commandName);
 
-	if(!command) return;
-    
+	if (!command) return;
+
 	try {
-    	await command.execute(interaction, Botphyte);
-    	console.log(`┌─ `.white + `[${hour}:${minute}]`.brightGreen.bold + ` ` + `(${__filename})`.brightYellow.bold + ` ` + `(LOG)`.bold + ` (/${command.data.name})\n` + `└─`.white + ` "${interaction.user.tag}" (${interaction.user.id}) triggered an interaction at "#${interaction.channel.name}" (${interaction.channel.id}), on "${interaction.guild.name}" (${interaction.guild.id}). \n`);
+		await command.execute(interaction, Botphyte);
+		console.log(`┌─ `.white + `[${hour}:${minute}]`.brightGreen.bold + ` ` + `(${__filename})`.brightYellow.bold + ` ` + `(LOG)`.bold + ` (/${command.data.name})\n` + `└─`.white + ` "${interaction.user.tag}" (${interaction.user.id}) triggered an interaction at "#${interaction.channel.name}" (${interaction.channel.id}), on "${interaction.guild.name}" (${interaction.guild.id}). \n`);
 	} catch (error) {
 		console.log(`┌─ `.white + `[${hour}:${minute}]`.brightGreen.bold + ` ` + `(${__filename})`.brightYellow.bold + ` ` + `(ERROR)`.bold + ` (/${command.data.name})\n` + `└─`.white + ` "${interaction.user.tag}" (${interaction.user.id}) tried to trigger an interaction at "#${interaction.channel.name}" (${interaction.channel.id}), on "${interaction.guild.name}" (${interaction.guild.id}), but returned an error.\n${error}\n`);
-    	return interaction.reply({ content: 'There was an error while executing this command!', ephemeral: true });
+		return interaction.reply({ content: 'There was an error while executing this command!', ephemeral: true });
 	}
 });
-// #endregion Handler
 
-// Log in to Discord
-Botphyte.login(config.bot.token);
+Botphyte.login(bot.application.token);

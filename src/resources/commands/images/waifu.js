@@ -1,47 +1,51 @@
-
-// © 2021 Pix3l_. All rights reserved.
-// Created with <3 by Pix3l_.
+// Made with <3 by Pix3l_.
 
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { MessageEmbed, MessageActionRow, MessageButton } = require('discord.js');
-const config = require('../../config.json');
-const fetch = require('node-fetch')
+const bot = require('../../misc/configuration/bot.js');
+const fetch = require('node-fetch');
+const date = new Date();
 
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('waifu')
-		.setDescription('Sends an image of a Waifu. If channel is NSFW, I will send a lewd image.'),
+		.setDescription('Sends an image of a waifu. If channel is NSFW, I will send a lewd image.'),
 	async execute(interaction) {
-		if(interaction.user.id === '366252037694029834') {
-			interaction.reply({ content: 'You are banned from /hentai!', ephemeral: true })
-		} else {
+		let img;
+		switch (interaction.channel.nsfw) {
+			case true:
+				img = bot.api.waifu.lewd;
+			default:
+				img = bot.api.waifu.sfw;
+		}
+		const { url } = await fetch(img).then(res => res.json());
 
-		// Fetch Waifu image.
-		const nsfw = interaction.channel.nsfw ? 'nsfw' : 'sfw';
-		const { url } = await fetch(`https://waifu.pics/api/${nsfw}/waifu`).then(res => res.json());
-		
-		// #region Embeds
 		const embed = new MessageEmbed()
-			.setColor(config.embed.colour)
-			.setTitle('Here is your Waifu!')
-			.setDescription('Be careful, it\'s **No Simp September**.')
+			.setColor(bot.embed.defaultColour)
+			.setTitle('Here is your waifu!')
 			.setURL(url)
 			.setImage(url)
-			.setFooter(`Fetched from https://waifu.pics/api/${nsfw}/waifu.`);
-		// #endregion Embeds
+			.setFooter(`Fetched from ${img}`);
 
-		// #region Buttons
 		const button = new MessageActionRow()
-		.addComponents(
-			new MessageButton()
-				.setStyle('LINK')
-				.setLabel('Visit source here')
-				.setURL(url)
-		);
-		// #endregion Buttons
+			.addComponents(
+				new MessageButton()
+					.setStyle('LINK')
+					.setLabel('Visit source here')
+					.setURL(url)
+			);
 
-		// Reply to interaction.
-		await interaction.reply({ embeds: [embed], components: [button] });
+		switch (date.getMonth()) {
+			case 8:
+				embed.setDescription('Be careful, it\'s **No Simp September**!');
+				break;
+			case 11:
+				embed.setDescription('Be careful, it\'s **No Nut November**!');
+				break;
+			default:
+				break;
 		}
-	},
-};
+
+		await interaction.reply({ embeds: [embed], components: [button] });
+	}
+}

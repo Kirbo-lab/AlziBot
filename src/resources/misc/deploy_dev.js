@@ -1,9 +1,8 @@
 const { readdirSync } = require('fs');
 const { REST } = require('@discordjs/rest');
 const { Routes } = require('discord-api-types/v9');
-const config = require('../config.json');
-const server = require('./json/server.json');
 const colors = require('colors');
+const bot = require('./configuration/bot.js');
 let date_time = new Date();
 let hour = ("0" + date_time.getHours()).slice(-2);
 let minute = ("0" + date_time.getMinutes()).slice(-2);
@@ -22,16 +21,16 @@ for (const folder of commandFolders) {
 	}
 }
 
-const rest = new REST({ version: '9' }).setToken(config.bot.token);
+const rest = new REST({ version: '9' }).setToken(bot.application.token);
 
 (async () => {
 	try {
 		await rest.put(
-			Routes.applicationGuildCommands(config.bot.clientID, server.misc.devGuildID),
+			Routes.applicationGuildCommands(bot.application.client, bot.guild.dev),
 			{ body: commands },
 		);
 
-		console.log(`┌─ `.white + `[${hour}:${minute}]`.brightGreen.bold + ` ` + `(${__filename})`.brightYellow.bold + ` ` + `(LOG)\n`.bold + `└─`.white + ` Successfully registered all application commands!`);
+		console.log(`┌─ `.white + `[${hour}:${minute}]`.brightGreen.bold + ` ` + `(${__filename})`.brightYellow.bold + ` ` + `(LOG)\n`.bold + `└─`.white + ` Successfully registered application commands to development server!\n`);
 	} catch (error) {
 		console.log(`┌─ `.white + `[${hour}:${minute}]`.brightGreen.bold + ` ` + `(${__filename})`.brightYellow.bold + ` ` + `(ERROR)\n`.bold + `└─`.white + ` ${error}`);
 	}

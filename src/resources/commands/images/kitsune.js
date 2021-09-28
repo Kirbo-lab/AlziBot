@@ -1,47 +1,51 @@
-
-// © 2021 Pix3l_. All rights reserved.
-// Created with <3 by Pix3l_.
+// Made with <3 by Pix3l_.
 
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { MessageEmbed, MessageActionRow, MessageButton } = require('discord.js');
-const config = require('../../config.json');
-const fetch = require('node-fetch')
+const bot = require('../../misc/configuration/bot.js');
+const fetch = require('node-fetch');
+const date = new Date();
 
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('kitsune')
-		.setDescription('Sends an image of a Kitsune / fox girl. If channel is NSFW, I will send a lewd image.'),
+		.setDescription('Sends an image of a kitsune/foxgirl. If channel is NSFW, I will send a lewd image.'),
 	async execute(interaction) {
-		if(interaction.user.id === '366252037694029834') {
-			interaction.reply({ content: 'You are banned from /hentai!', ephemeral: true })
-		} else {
+		let img;
+		switch (interaction.channel.nsfw) {
+			case true:
+				img = bot.api.kitsune.lewd;
+			default:
+				img = bot.api.kitsune.sfw;
+		};
+		const { url } = await fetch(img).then(res => res.json());
 
-		// Fetch kitsune image.
-		const nsfw = interaction.channel.nsfw ? 'lewdk' : 'fox_girl';
-		const { url } = await fetch(`https://nekos.life/api/v2/img/${nsfw}`).then(res => res.json());
-		
-		// #region Embeds
 		const embed = new MessageEmbed()
-			.setColor(config.embed.colour)
-			.setTitle('Here is your Kitsune!')
-			.setDescription('Be careful, it\'s **No Simp September**.')
+			.setColor(bot.embed.defaultColour)
+			.setTitle('Here is your kitsune!')
 			.setURL(url)
 			.setImage(url)
-			.setFooter(`Fetched from https://nekos.life/api/v2/img/${nsfw}.`);
-		// #endregion Embeds
+			.setFooter(`Fetched from ${img}`);
 
-		// #region Buttons
 		const button = new MessageActionRow()
-		.addComponents(
-			new MessageButton()
-				.setStyle('LINK')
-				.setLabel('Visit source here')
-				.setURL(url)
-		);
-		// #endregion Buttons
-		
-		// Reply to interaction.
-		await interaction.reply({ embeds: [embed], components: [button] });
+			.addComponents(
+				new MessageButton()
+					.setStyle('LINK')
+					.setLabel('Visit source here')
+					.setURL(url)
+			);
+
+		switch (date.getMonth()) {
+			case 8:
+				embed.setDescription('Be careful, it\'s **No Simp September**!');
+				break;
+			case 11:
+				embed.setDescription('Be careful, it\'s **No Nut November**!');
+				break;
+			default:
+				break;
 		}
-	},
-};
+
+		await interaction.reply({ embeds: [embed], components: [button] });
+	}
+}
