@@ -42,4 +42,4 @@ For questions, you can simply make a new issue.
 
 ## License
 
-Botphyte is licensed under the GLWTPL license. See the file `LICENSE` for more information.
+Botphyte is licensed under the LGPL-3.0 license. See the file `LICENSE` for more information.
