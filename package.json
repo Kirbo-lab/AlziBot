@@ -33,6 +33,9 @@
     "deploy": "node src/resources/deploy.js",
     "deploydev": "node src/resources/misc/deploy_dev.js"
   },
+    "engines": {
+    "node": "16.x"
+  }
   "repository": {
     "type": "git",
     "url": "git+https://github.com/WhosPix3l/Botphyte.git"
