@@ -1,21 +1,17 @@
-<img width="150" height="150" align="left" src="https://cdn.discordapp.com/attachments/877589565186113548/877602375228096592/render.png"> 
+<img width="150" height="150" align="left" src="https://media.discordapp.net/attachments/914556996685021264/914568263965495356/the_bot.png?width=513&height=513"> 
 
-# Botphyte
-
-[![](https://img.shields.io/npm/v/discord.js?label=discord.js)](https://github.com/discordjs)
-[![](https://img.shields.io/badge/patreon-donate-orange.svg)](https://www.patreon.com/Pix3l_)
-[![](https://www.codefactor.io/repository/github/WhosPix3l/Botphyte)](https://www.codefactor.io/repository/github/WhosPix3l/Botphyte)
+# Aldi
 
 > Official Discord bot for [Neophyte's server](https://discord.com/invite/WeD3ypV)!
 
-Botphyte is an open-source Discord bot coded in JavaScript with [Discord.js](https://discord.js.org) by [Pixel](https://github.com/WhosPix3l).  
+Aldi is an open-source Discord bot coded in JavaScript with [Discord.js](https://discord.js.org) by [Kirbo](https://github.com/Kirbo-lab), a fork of [Botphyte](https://github.com/WhosPix3l/Botphyte) by [Pixel](https://github.com/WhosPix3l).  
 Feel free to add a star to the repo if you like the project!
 
 ## Features
 
-* Botphyte features a lot of commands, mainly fun commands, but also includes a lot of general commands, such as moderation!
+* Aldi features a lot of commands, mainly fun commands, but also includes a lot of general commands, such as moderation!
 
-* Botphyte also adds **a new mention**, `@random`, which pings a random member of the server!
+* Aldi also adds **a new mention**, `@random`, which pings a random member of the server!
 
 [See the full commands list](https://github.com/WhosPix3l/Botphyte/wiki/Commands)
 
@@ -27,7 +23,7 @@ You can follow the [hosting guide](https://https://github.com/WhosPix3l/Botphyte
 
 ## Links
 
-*   🧩 [Commands List](https://www.github.com/WhosPix3l/Botphyte/wiki/Commands)
+*   🧩 [Commands List](https://github.com/Kirbo-lab/AlziBot/wiki/Commands)
 *   🚀 [Hosting Guide](https://www.github.com/WhosPix3l/Botphyte/wiki/Hosting)
 *   📌 [F.A.Q](https://www.github.com/WhosPix3l/Botphyte/wiki/FAQ)
 *   🤖 [Neophyte Discord](https://www.discord.com/invite/WeD3ypV)
