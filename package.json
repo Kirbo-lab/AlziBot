@@ -24,26 +24,26 @@
     "string-to-template-literal": "^2.0.0",
     "template-strings": "^0.0.6"
   },
-  "name": "botphyte",
-  "description": "Official bot for Neophyte's server!",
+  "name": "AldiBot",
+  "description": "Official bot for Kirbo's server!",
   "version": "1.6.3",
-  "main": "src/botphyte.js",
+  "main": "src/AldiBot.js",
   "scripts": {
-    "botphyte": "node src/botphyte.js",
+    "AldiBot": "node src/botphyte.js",
     "deploy": "node src/resources/deploy.js",
     "deploydev": "node src/resources/misc/deploy_dev.js"
   },
     "engines": {
     "node": "16.x"
-  }
+  },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/WhosPix3l/Botphyte.git"
+    "url": "git+https://github.com/WhosPix3l/AldiBot.git"
   },
   "author": "WhosPix3l",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/WhosPix3l/Botphyte/issues"
+    "url": "https://github.com/WhosPix3l/AldiBot/issues"
   },
-  "homepage": "https://github.com/WhosPix3l/Botphyte#readme"
+  "homepage": "https://github.com/WhosPix3l/AldiBot#readme"
 }
